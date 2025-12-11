@@ -31,9 +31,9 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
+          {/*<Route path="/products" element={<Products />} />*/}
           <Route path="/project/:id" element={<ProjectDetail />} />
-          <Route path="/education" element={<Education />} />
+          {/*<Route path="/education" element={<Education />} />*/}
           <Route path="/team" element={<Team />} />
 
           {/* Placeholders for secondary links */}

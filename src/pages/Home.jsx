@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 // Partner logos
 import logoFlips from '../assets/partners/flips.png';
-import logoFraction from '../assets/partners/fraction.png';
+import logoFraction from '../assets/partners/fraction.jpg';
 import logoCulture from '../assets/partners/culture.png';
 import logoDIP from '../assets/partners/dip.png';
 import logoMSU from '../assets/partners/msu.png';
@@ -26,16 +26,20 @@ const Home = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-6 border border-white/20">
-                            <span className="text-colestia-magenta text-sm tracking-wider uppercase font-bold">The Future of Investment</span>
-                        </div>
 
-                        <h1 className="text-5xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
-                            Cinematic <span className="text-gradient-main">Futures</span>
+
+                        <h1 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
+                            COLESTIA
                         </h1>
+                        <h2 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
+                            <span className="text-gradient-main">Dream Crafted.</span>
+                        </h2>
 
-                        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                            Colestia blends world-class production with blockchain innovation.
+                        <p
+                            className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed"
+                            style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 5)' }}
+                        >
+                            Crafting stories. Empowering creators. Elevating investors.
                             <br /><span className="text-white/60 text-sm">Invest in the stories that shape tomorrow.</span>
                         </p>
 
@@ -66,7 +70,7 @@ const Home = () => {
                 </motion.div>
             </section>
 
-            {/* 2. "We Are Velcurve" / About Section */}
+            {/* 2. "We Are Colestia" / About Section */}
             <section className="py-24 bg-colestia-bg relative">
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -77,11 +81,10 @@ const Home = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-                                WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">VELCURVE</span>
+                                WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">COLESTIA</span>
                             </h2>
                             <p className="text-gray-400 leading-loose mb-6">
-                                Velcurve is a media production company that spans films, dramas, series, TV commercials, OTT, and advertising.
-                                We have successfully expanded into technology, delivering quality work and recording live audience experiences.
+                                "Power Up! ปลุกพลังสร้างสรรค์หนังไทยกับ Colestia"
                             </p>
                             <Button variant="ghost" className="pl-0 text-white group">
                                 Read Our Story <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -99,16 +102,16 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 3. Ecosystem Flow Diagram (Visualizing the Brief) */}
+            {/* 3. Ecosystem Flow Diagram (Visualizing the Brief) 
             <section className="py-24 bg-[#050505]">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="text-3xl font-display font-bold text-white mb-16">The Ecosystem Flow</h2>
 
                     <div className="grid md:grid-cols-3 gap-8 relative">
-                        {/* Connecting Line (Desktop) */}
+                        {/* Connecting Line (Desktop) 
                         <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-colestia-purple/30 to-transparent -translate-y-1/2 z-0" />
 
-                        {/* Step 1 */}
+                        {/* Step 1 
                         <div className="relative z-10 bg-colestia-card p-8 rounded-2xl border border-white/5 mx-auto max-w-xs">
                             <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-400">
                                 <Globe size={32} />
@@ -117,7 +120,7 @@ const Home = () => {
                             <p className="text-sm text-gray-400">User discovers project through trusted media channels.</p>
                         </div>
 
-                        {/* Step 2 (Colestia) */}
+                        {/* Step 2 (Colestia) 
                         <div className="relative z-10 bg-colestia-card p-8 rounded-2xl border border-colestia-purple/30 shadow-[0_0_30px_rgba(122,30,166,0.1)] mx-auto max-w-xs">
                             <div className="w-16 h-16 bg-colestia-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-colestia-purple">
                                 <Shield size={32} />
@@ -126,7 +129,7 @@ const Home = () => {
                             <p className="text-sm text-gray-400">In-depth education, project showcase, and risk analysis.</p>
                         </div>
 
-                        {/* Step 3 */}
+                        {/* Step 3 
                         <div className="relative z-10 bg-colestia-card p-8 rounded-2xl border border-white/5 mx-auto max-w-xs">
                             <div className="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-purple-400">
                                 <Zap size={32} />
@@ -136,8 +139,8 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section>
-
+            </section> 
+*/}
             {/* 4. Directors Section */}
             <section className="py-24 bg-colestia-bg">
                 <div className="container mx-auto px-6">
@@ -271,23 +274,21 @@ const Home = () => {
                     </motion.div>
 
                     {/* Partner Grid - 3 columns, 2 rows */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                         {/* Partner 1: ก.ล.ต. */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
+                            className="group"
                         >
-                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
-                                <div className="h-28 w-full flex items-center justify-center mb-6">
-                                    <img
-                                        src={logoSEC}
-                                        alt="ก.ล.ต."
-                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">สำนักงาน ก.ล.ต.</p>
+                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                                <img
+                                    src={logoSEC}
+                                    alt="ก.ล.ต."
+                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
                         </motion.div>
 
@@ -297,16 +298,14 @@ const Home = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.15 }}
+                            className="group"
                         >
-                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
-                                <div className="h-28 w-full flex items-center justify-center mb-6">
-                                    <img
-                                        src={logoCulture}
-                                        alt="กระทรวงวัฒนธรรม"
-                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">กระทรวงวัฒนธรรม</p>
+                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                                <img
+                                    src={logoCulture}
+                                    alt="กระทรวงวัฒนธรรม"
+                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
                         </motion.div>
 
@@ -316,16 +315,14 @@ const Home = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
+                            className="group"
                         >
-                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
-                                <div className="h-28 w-full flex items-center justify-center mb-6">
-                                    <img
-                                        src={logoDIP}
-                                        alt="กรมทรัพย์สินทางปัญญา"
-                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">กรมทรัพย์สินทางปัญญา</p>
+                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                                <img
+                                    src={logoDIP}
+                                    alt="กรมทรัพย์สินทางปัญญา"
+                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
                         </motion.div>
 
@@ -335,16 +332,14 @@ const Home = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.25 }}
+                            className="group"
                         >
-                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
-                                <div className="h-28 w-full flex items-center justify-center mb-6">
-                                    <img
-                                        src={logoMSU}
-                                        alt="มหาวิทยาลัยมหาสารคาม"
-                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">มหาวิทยาลัยมหาสารคาม</p>
+                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                                <img
+                                    src={logoMSU}
+                                    alt="มหาวิทยาลัยมหาสารคาม"
+                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
                         </motion.div>
 
@@ -354,16 +349,14 @@ const Home = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
+                            className="group"
                         >
-                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
-                                <div className="h-28 w-full flex items-center justify-center mb-6">
-                                    <img
-                                        src={logoFraction}
-                                        alt="Fraction"
-                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">Fraction</p>
+                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                                <img
+                                    src={logoFraction}
+                                    alt="Fraction"
+                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
                         </motion.div>
 
@@ -373,16 +366,14 @@ const Home = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.35 }}
+                            className="group"
                         >
-                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
-                                <div className="h-28 w-full flex items-center justify-center mb-6">
-                                    <img
-                                        src={logoFlips}
-                                        alt="Flips Innovative"
-                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">Flips Innovative</p>
+                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                                <img
+                                    src={logoFlips}
+                                    alt="Flips Innovative"
+                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                />
                             </div>
                         </motion.div>
                     </div>

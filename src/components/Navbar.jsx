@@ -22,12 +22,14 @@ const Navbar = () => {
     }, [location]);
 
     const navLinks = [
+        { name: 'Home', path: '/' },
         { name: 'Products', path: '/products' },
         { name: 'Service', path: '/service' }, // Keeping standard links from design, even if simple placeholders 
         { name: 'Team', path: '/team' },
         { name: 'News', path: '/news' },
         { name: 'Education', path: '/education' }, // Added for Brief alignment
         { name: 'Contact', path: '/contact' },
+
     ];
 
     return (
