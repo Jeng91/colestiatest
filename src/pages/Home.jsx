@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import VideoBackground from '../components/VideoBackground';
 import Button from '../components/Button';
-import { ArrowRight, Globe, Shield, Zap } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Globe, Shield, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Partner logos
@@ -26,10 +26,10 @@ const Home = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        {/*<div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-6 border border-white/20">
+                        <div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-6 border border-white/20">
                             <span className="text-colestia-magenta text-sm tracking-wider uppercase font-bold">The Future of Investment</span>
-                        </div>*/
-                        }
+                        </div>
+
                         <h1 className="text-5xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
                             Cinematic <span className="text-gradient-main">Futures</span>
                         </h1>
@@ -270,113 +270,120 @@ const Home = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+                    {/* Partner Grid - 3 columns, 2 rows */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {/* Partner 1: ก.ล.ต. */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
                         >
-                            <div className="h-20 w-full flex items-center justify-center mb-3">
-                                <img
-                                    src={logoSEC}
-                                    alt="ก.ล.ต."
-                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                                />
+                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
+                                <div className="h-28 w-full flex items-center justify-center mb-6">
+                                    <img
+                                        src={logoSEC}
+                                        alt="ก.ล.ต."
+                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                                    />
+                                </div>
+                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">สำนักงาน ก.ล.ต.</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">ก.ล.ต.</p>
                         </motion.div>
 
                         {/* Partner 2: กระทรวงวัฒนธรรม */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.15 }}
-                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
                         >
-                            <div className="h-20 w-full flex items-center justify-center mb-3">
-                                <img
-                                    src={logoCulture}
-                                    alt="กระทรวงวัฒนธรรม"
-                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                                />
+                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
+                                <div className="h-28 w-full flex items-center justify-center mb-6">
+                                    <img
+                                        src={logoCulture}
+                                        alt="กระทรวงวัฒนธรรม"
+                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                                    />
+                                </div>
+                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">กระทรวงวัฒนธรรม</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">กระทรวงวัฒนธรรม</p>
                         </motion.div>
 
                         {/* Partner 3: กรมทรัพย์สินทางปัญญา */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
                         >
-                            <div className="h-20 w-full flex items-center justify-center mb-3">
-                                <img
-                                    src={logoDIP}
-                                    alt="กรมทรัพย์สินทางปัญญา"
-                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                                />
+                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
+                                <div className="h-28 w-full flex items-center justify-center mb-6">
+                                    <img
+                                        src={logoDIP}
+                                        alt="กรมทรัพย์สินทางปัญญา"
+                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                                    />
+                                </div>
+                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">กรมทรัพย์สินทางปัญญา</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">กรมทรัพย์สินทางปัญญา</p>
                         </motion.div>
 
                         {/* Partner 4: มหาวิทยาลัยมหาสารคาม */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.25 }}
-                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
                         >
-                            <div className="h-20 w-full flex items-center justify-center mb-3">
-                                <img
-                                    src={logoMSU}
-                                    alt="มหาวิทยาลัยมหาสารคาม"
-                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                                />
+                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
+                                <div className="h-28 w-full flex items-center justify-center mb-6">
+                                    <img
+                                        src={logoMSU}
+                                        alt="มหาวิทยาลัยมหาสารคาม"
+                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                                    />
+                                </div>
+                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">มหาวิทยาลัยมหาสารคาม</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">ม.มหาสารคาม</p>
                         </motion.div>
 
                         {/* Partner 5: Fraction */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
-                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
                         >
-                            <div className="h-20 w-full flex items-center justify-center mb-3">
-                                <img
-                                    src={logoFraction}
-                                    alt="Fraction"
-                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                                />
+                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
+                                <div className="h-28 w-full flex items-center justify-center mb-6">
+                                    <img
+                                        src={logoFraction}
+                                        alt="Fraction"
+                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                                    />
+                                </div>
+                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">Fraction</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">Fraction</p>
                         </motion.div>
 
                         {/* Partner 6: Flips Innovative */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.35 }}
-                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
                         >
-                            <div className="h-20 w-full flex items-center justify-center mb-3">
-                                <img
-                                    src={logoFlips}
-                                    alt="Flips Innovative"
-                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                                />
+                            <div className="flex flex-col items-center justify-center p-10 bg-white/5 rounded-3xl border border-white/10 hover:border-colestia-purple/50 hover:bg-white/10 transition-all duration-500 group h-64">
+                                <div className="h-28 w-full flex items-center justify-center mb-6">
+                                    <img
+                                        src={logoFlips}
+                                        alt="Flips Innovative"
+                                        className="max-h-24 max-w-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                                    />
+                                </div>
+                                <p className="text-sm text-gray-400 text-center group-hover:text-white transition-colors font-medium">Flips Innovative</p>
                             </div>
-                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">Flips Innovative</p>
                         </motion.div>
                     </div>
                 </div>
@@ -386,3 +393,4 @@ const Home = () => {
 };
 
 export default Home;
+
