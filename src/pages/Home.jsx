@@ -5,6 +5,14 @@ import Button from '../components/Button';
 import { ArrowRight, Globe, Shield, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Partner logos
+import logoFlips from '../assets/partners/flips.png';
+import logoFraction from '../assets/partners/fraction.png';
+import logoCulture from '../assets/partners/culture.png';
+import logoDIP from '../assets/partners/dip.png';
+import logoMSU from '../assets/partners/msu.png';
+import logoSEC from '../assets/partners/sec.png';
+
 const Home = () => {
     return (
         <div className="w-full">
@@ -18,16 +26,16 @@ const Home = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-6 border border-white/20">
+                        {/*<div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-6 border border-white/20">
                             <span className="text-colestia-magenta text-sm tracking-wider uppercase font-bold">The Future of Investment</span>
-                        </div>
-
+                        </div>*/
+                        }
                         <h1 className="text-5xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
                             Cinematic <span className="text-gradient-main">Futures</span>
                         </h1>
 
                         <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                            Velcurve blends world-class production with blockchain innovation.
+                            Colestia blends world-class production with blockchain innovation.
                             <br /><span className="text-white/60 text-sm">Invest in the stories that shape tomorrow.</span>
                         </p>
 
@@ -242,6 +250,135 @@ const Home = () => {
                             </Button>
                         </Link>
                     </motion.div>
+                </div>
+            </section>
+
+            {/* 5. Partners Section */}
+            <section className="py-24 bg-[#050505]">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                            Our <span className="text-gradient-main">Partners</span>
+                        </h2>
+                        <p className="text-gray-400 max-w-2xl mx-auto">
+                            พันธมิตรที่ร่วมสร้างอนาคตของอุตสาหกรรมสื่อและเทคโนโลยีบล็อกเชน
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+                        {/* Partner 1: ก.ล.ต. */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
+                        >
+                            <div className="h-20 w-full flex items-center justify-center mb-3">
+                                <img
+                                    src={logoSEC}
+                                    alt="ก.ล.ต."
+                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                            </div>
+                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">ก.ล.ต.</p>
+                        </motion.div>
+
+                        {/* Partner 2: กระทรวงวัฒนธรรม */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.15 }}
+                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
+                        >
+                            <div className="h-20 w-full flex items-center justify-center mb-3">
+                                <img
+                                    src={logoCulture}
+                                    alt="กระทรวงวัฒนธรรม"
+                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                            </div>
+                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">กระทรวงวัฒนธรรม</p>
+                        </motion.div>
+
+                        {/* Partner 3: กรมทรัพย์สินทางปัญญา */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
+                        >
+                            <div className="h-20 w-full flex items-center justify-center mb-3">
+                                <img
+                                    src={logoDIP}
+                                    alt="กรมทรัพย์สินทางปัญญา"
+                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                            </div>
+                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">กรมทรัพย์สินทางปัญญา</p>
+                        </motion.div>
+
+                        {/* Partner 4: มหาวิทยาลัยมหาสารคาม */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.25 }}
+                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
+                        >
+                            <div className="h-20 w-full flex items-center justify-center mb-3">
+                                <img
+                                    src={logoMSU}
+                                    alt="มหาวิทยาลัยมหาสารคาม"
+                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                            </div>
+                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">ม.มหาสารคาม</p>
+                        </motion.div>
+
+                        {/* Partner 5: Fraction */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
+                        >
+                            <div className="h-20 w-full flex items-center justify-center mb-3">
+                                <img
+                                    src={logoFraction}
+                                    alt="Fraction"
+                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                            </div>
+                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">Fraction</p>
+                        </motion.div>
+
+                        {/* Partner 6: Flips Innovative */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.35 }}
+                            className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-colestia-purple/30 hover:bg-white/10 transition-all duration-300 group"
+                        >
+                            <div className="h-20 w-full flex items-center justify-center mb-3">
+                                <img
+                                    src={logoFlips}
+                                    alt="Flips Innovative"
+                                    className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                            </div>
+                            <p className="text-xs text-gray-400 text-center group-hover:text-white transition-colors">Flips Innovative</p>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
         </div>
