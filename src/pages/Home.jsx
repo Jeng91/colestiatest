@@ -129,6 +129,121 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* 4. Directors Section */}
+            <section className="py-24 bg-colestia-bg">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                            Our <span className="text-gradient-main">Directors</span>
+                        </h2>
+                        <p className="text-gray-400 max-w-2xl mx-auto">
+                            Visionary leaders driving innovation in film and blockchain technology.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {/* Director 1 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="group relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 hover:border-colestia-purple/30 transition-all duration-500"
+                        >
+                            <div className="h-72 overflow-hidden relative">
+                                <img
+                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+                                    alt="Director 1"
+                                    className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                            </div>
+                            <div className="p-6">
+                                <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
+                                    Thanet Chaisiri
+                                </h3>
+                                <p className="text-colestia-magenta text-sm font-medium mb-3">Executive Director</p>
+                                <p className="text-gray-400 text-sm leading-relaxed">
+                                    Award-winning filmmaker with over 20 years of experience in the Thai entertainment industry. Pioneer in integrating blockchain technology with media production.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Director 2 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="group relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 hover:border-colestia-purple/30 transition-all duration-500"
+                        >
+                            <div className="h-72 overflow-hidden relative">
+                                <img
+                                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
+                                    alt="Director 2"
+                                    className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                            </div>
+                            <div className="p-6">
+                                <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
+                                    Pimchanok Lertpong
+                                </h3>
+                                <p className="text-colestia-magenta text-sm font-medium mb-3">Creative Director</p>
+                                <p className="text-gray-400 text-sm leading-relaxed">
+                                    Renowned for her distinctive visual storytelling style. Led creative direction for multiple international co-productions and streaming originals.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Director 3 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="group relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 hover:border-colestia-purple/30 transition-all duration-500"
+                        >
+                            <div className="h-72 overflow-hidden relative">
+                                <img
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
+                                    alt="Director 3"
+                                    className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                            </div>
+                            <div className="p-6">
+                                <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
+                                    Weerachai Tanaka
+                                </h3>
+                                <p className="text-colestia-magenta text-sm font-medium mb-3">Technical Director</p>
+                                <p className="text-gray-400 text-sm leading-relaxed">
+                                    Former tech executive with expertise in digital transformation. Bridges the gap between traditional media and emerging Web3 technologies.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="text-center mt-12"
+                    >
+                        <Link to="/team">
+                            <Button variant="outline">
+                                View Full Team <ArrowRight size={18} />
+                            </Button>
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
         </div>
     );
 };
