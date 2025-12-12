@@ -7,6 +7,7 @@ import Products from './pages/Products';
 import ProjectDetail from './pages/ProjectDetail';
 import Team from './pages/Team';
 import Education from './pages/Education';
+import Login from './pages/Login';
 
 // Placeholder content for simple pages
 const PlaceholderPage = ({ title }) => (
@@ -24,9 +25,12 @@ const App = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // Hide navbar/footer on login page
+  const hideNavFooter = pathname === '/login' || pathname === '/register';
+
   return (
     <div className="min-h-screen bg-colestia-bg text-white selection:bg-colestia-gold selection:text-black">
-      <Navbar />
+      {!hideNavFooter && <Navbar />}
 
       <main>
         <Routes>
@@ -35,7 +39,7 @@ const App = () => {
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/education" element={<Education />} />
           <Route path="/team" element={<Team />} />
-
+          <Route path="/login" element={<Login />} />
 
           {/* Placeholders for secondary links */}
           <Route path="/service" element={<PlaceholderPage title="Services" />} />
@@ -43,10 +47,11 @@ const App = () => {
           <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
           <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" />} />
           <Route path="/terms" element={<PlaceholderPage title="Terms of Service" />} />
+          <Route path="/register" element={<PlaceholderPage title="Register" />} />
         </Routes>
       </main>
 
-      <Footer />
+      {!hideNavFooter && <Footer />}
     </div>
   );
 };
