@@ -53,11 +53,15 @@ const Navbar = () => {
                             key={link.name}
                             to={link.path}
                             className={({ isActive }) =>
-                                `text-lg tracking-wide transition-colors duration-300 ${isActive ? 'text-colestia-purple' : 'text-white-300 hover:text-white'
+                                `text-lg tracking-wide transition-all duration-300 relative group ${isActive
+                                    ? 'text-colestia-purple'
+                                    : 'text-white-300 hover:text-white hover:scale-105'
                                 }`
                             }
                         >
                             {link.name}
+                            {/* Hover underline effect */}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-colestia-purple to-colestia-magenta group-hover:w-full transition-all duration-300" />
                         </NavLink>
                     ))}
 
