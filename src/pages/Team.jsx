@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import jirasinImg from '../assets/jirasin.jpg.jpg';
+import jirasinImg from '../assets/team/jirasit.jpg';
 import { CloudCog } from 'lucide-react';
 
 {/*เปลี่ยนเป็นการดึงข้อมูลจาก DB อนาคต */ }
@@ -13,7 +13,7 @@ const teamMembers = [
     {
         name: "จิรสิน ขนิษฐานันท์",
         role: "Co-Founder / CEO",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
+        image: jirasinImg
     },
     {
         name: "ฐณณ ธนกรประภา ",
