@@ -41,7 +41,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link to="/" className="text-2xl font-display font-bold text-white tracking-widest uppercase flex items-center gap-2">
                     <div className="w-8 h-8 bg-colestia-purple/20 rounded-full flex items-center justify-center border border-colestia-purple">
-                        <span className="text-colestia-purple text-xs">V</span>
+                        <span className="text-colestia-purple text-xs">C</span>
                     </div>
                     Colestia
                 </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
                             key={link.name}
                             to={link.path}
                             className={({ isActive }) =>
-                                `text-sm tracking-wide transition-colors duration-300 ${isActive ? 'text-colestia-purple' : 'text-gray-300 hover:text-white'
+                                `text-lg tracking-wide transition-colors duration-300 ${isActive ? 'text-colestia-purple' : 'text-white-300 hover:text-white'
                                 }`
                             }
                         >
@@ -62,7 +62,7 @@ const Navbar = () => {
                     ))}
 
                     {/* Join Now Button */}
-                    <Link to="/login" className="bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-[0_0_20px_rgba(122,30,166,0.5)] transition-all duration-300 hover:scale-105">
+                    <Link to="/login" className="text-lg bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-[0_0_20px_rgba(122,30,166,0.5)] transition-all duration-300 hover:scale-105">
                         Join Now
                     </Link>
                 </div>

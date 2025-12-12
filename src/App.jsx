@@ -8,6 +8,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import Team from './pages/Team';
 import Education from './pages/Education';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 // Placeholder content for simple pages
 const PlaceholderPage = ({ title }) => (
@@ -47,7 +48,7 @@ const App = () => {
           <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
           <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" />} />
           <Route path="/terms" element={<PlaceholderPage title="Terms of Service" />} />
-          <Route path="/register" element={<PlaceholderPage title="Register" />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </main>
 
