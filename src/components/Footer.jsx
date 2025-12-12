@@ -11,6 +11,7 @@ const Footer = () => {
                         <h3 className="text-2xl font-display font-bold text-white tracking-widest uppercase">Colestia</h3>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Empowering the future of digital assets through education and transparent project showcasing.
+                            {/* “เสริมพลังอนาคตของสินทรัพย์ดิจิทัลผ่านการให้ความรู้และการนำเสนอโปรเจกต์อย่างโปร่งใส” */}
                         </p>
                     </div>
 
@@ -18,7 +19,7 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white font-bold mb-6">Platform</h4>
                         <ul className="space-y-4 text-sm text-gray-400">
-                            <li><Link to="/products" className="hover:text-colestia-gold transition-colors">Showcase</Link></li>
+                            <li><Link to="/products" className="hover:text-colestia-gold transition-colors">Projects</Link></li>
                             <li><Link to="/education" className="hover:text-colestia-gold transition-colors">Investor Education</Link></li>
                             <li><Link to="/team" className="hover:text-colestia-gold transition-colors">Our Team</Link></li>
                         </ul>
@@ -30,7 +31,7 @@ const Footer = () => {
                         <ul className="space-y-4 text-sm text-gray-400">
                             <li><Link to="/privacy" className="hover:text-colestia-gold transition-colors">Privacy Policy</Link></li>
                             <li><Link to="/terms" className="hover:text-colestia-gold transition-colors">Terms of Service</Link></li>
-                            <li><span className="text-xs opacity-50">Disclaimer: No financial advice.</span></li>
+                            {/*<li><span className="text-xs opacity-50">Disclaimer: No financial advice.</span></li>*/}
                         </ul>
                     </div>
 

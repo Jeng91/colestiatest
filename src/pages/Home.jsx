@@ -37,11 +37,11 @@ const Home = () => {
                         </h2>
 
                         <p
-                            className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed"
+                            className="text-xl text-white mb-10 max-w-2xl mx-auto font-light leading-relaxed"
                             style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 5)' }}
                         >
                             Crafting stories. Empowering creators. Elevating investors.
-                            <br /><span className="text-white/60 text-sm">Invest in the stories that shape tomorrow.</span>
+                            <br /><span className="text-white/80 text-sm">Invest in the stories that shape tomorrow.</span>
                         </p>
 
                         <div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -84,7 +84,7 @@ const Home = () => {
                             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
                                 WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">COLESTIA</span>
 
-                                <br /><span className="text-white/60 text-xl">"Power Up! ปลุกพลังสร้างสรรค์หนังไทยกับ Colestia"</span>
+                                <br /><span className="text-white/90 text-xl font-display font-bold ">"Power Up! ปลุกพลังสร้างสรรค์หนังไทยกับ Colestia"</span>
                             </h2>
                             <Button variant="ghost" className="pl-0 text-white group">
                                 Read Our Story <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -195,7 +195,7 @@ const Home = () => {
                                         </div>
 
                                         {/* Static short desc */}
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Description</p>
+                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@ const Home = () => {
                                                 Description - Renowned for her distinctive visual storytelling style. Led creative direction for multiple international co-productions and streaming originals.
                                             </p>
                                         </div>
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Description</p>
+                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +261,7 @@ const Home = () => {
                                                 Description - Former tech executive with expertise in digital transformation. Bridges the gap between traditional media and emerging Web3 technologies.
                                             </p>
                                         </div>
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Description</p>
+                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +295,7 @@ const Home = () => {
                                                 Description - Former tech executive with expertise in digital transformation. Bridges the gap between traditional media and emerging Web3 technologies.
                                             </p>
                                         </div>
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Description</p>
+                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
                                     </div>
                                 </div>
                             </div>
@@ -351,9 +351,10 @@ const Home = () => {
                                 <img
                                     src={logoSEC}
                                     alt="ก.ล.ต."
-                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
+
                         </motion.div>
 
                         {/* Partner 2: กระทรวงวัฒนธรรม */}
@@ -368,9 +369,10 @@ const Home = () => {
                                 <img
                                     src={logoCulture}
                                     alt="กระทรวงวัฒนธรรม"
-                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
+
                         </motion.div>
 
                         {/* Partner 3: กรมทรัพย์สินทางปัญญา */}
@@ -385,7 +387,7 @@ const Home = () => {
                                 <img
                                     src={logoDIP}
                                     alt="กรมทรัพย์สินทางปัญญา"
-                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </motion.div>
@@ -402,7 +404,7 @@ const Home = () => {
                                 <img
                                     src={logoMSU}
                                     alt="มหาวิทยาลัยมหาสารคาม"
-                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </motion.div>
@@ -419,7 +421,7 @@ const Home = () => {
                                 <img
                                     src={logoFraction}
                                     alt="Fraction"
-                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </motion.div>
@@ -436,7 +438,7 @@ const Home = () => {
                                 <img
                                     src={logoFlips}
                                     alt="Flips Innovative"
-                                    className="max-h-28 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </motion.div>

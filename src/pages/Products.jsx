@@ -32,6 +32,33 @@ const projects = [
         image: "https://images.unsplash.com/photo-1598899134739-967b867b7463?q=80&w=2000&auto=format&fit=crop",
         raised: "100%",
         link: "https://th-ico-portal.com/project/media"
+    },
+    {
+        id: 4,
+        title: "Velcurve House",
+        category: "Real Estate Tokenization",
+        description: "Fractional ownership of the premier production house studio in Bangkok.",
+        image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop",
+        raised: "75%",
+        link: "https://th-ico-portal.com/project/velcurve"
+    },
+    {
+        id: 5,
+        title: "EcoEnergy Grid",
+        category: "Sustainable Tech",
+        description: "Blockchain-powered renewable energy distribution network.",
+        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2000&auto=format&fit=crop",
+        raised: "Coming Soon",
+        link: "https://investax.io/project/eco"
+    },
+    {
+        id: 6,
+        title: "NextGen Media",
+        category: "Media & Entertainment",
+        description: "Decentralized content creation platform for independent artists.",
+        image: "https://images.unsplash.com/photo-1598899134739-967b867b7463?q=80&w=2000&auto=format&fit=crop",
+        raised: "100%",
+        link: "https://th-ico-portal.com/project/media"
     }
 ];
 
