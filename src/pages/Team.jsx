@@ -6,23 +6,23 @@ import { CloudCog } from 'lucide-react';
 {/*เปลี่ยนเป็นการดึงข้อมูลจาก DB อนาคต */ }
 const teamMembers = [
     {
-        name: "Jirasin Khanitthanant",
+        name: "ปรัชญา ปิ่นแก้ว",
+        role: "Director",
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        name: "จิรสิน ขนิษฐานันท์",
         role: "Co-Founder / CEO",
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
     },
     {
-        name: "Name02",
-        role: "CEO",
+        name: "ฐณณ ธนกรประภา ",
+        role: "Co-founder/ Executine director",
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
     },
     {
-        name: "Name03",
-        role: "CEO",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-        name: "Name04",
-        role: "CEO",
+        name: "ผศ.ชุมศักดิ์ สีบุญเรือง",
+        role: "Co-founder",
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
     }
 ];
