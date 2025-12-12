@@ -1,31 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import jirasinImg from '../assets/team/jirasit.jpg';
-import { CloudCog } from 'lucide-react';
-
-{/*เปลี่ยนเป็นการดึงข้อมูลจาก DB อนาคต */ }
-const teamMembers = [
-    {
-        name: "ปรัชญา ปิ่นแก้ว",
-        role: "Director",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-        name: "จิรสิน ขนิษฐานันท์",
-        role: "Co-Founder / CEO",
-        image: jirasinImg
-    },
-    {
-        name: "ฐณณ ธนกรประภา ",
-        role: "Co-founder/ Executine director",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-        name: "ผศ.ชุมศักดิ์ สีบุญเรือง",
-        role: "Co-founder",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
-    }
-];
+import { teamMembers } from '../data/teamData';
 
 
 

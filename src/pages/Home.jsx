@@ -4,6 +4,7 @@ import VideoBackground from '../components/VideoBackground';
 import Button from '../components/Button';
 import { ArrowRight, ArrowLeft, Globe, Shield, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { teamMembers } from '../data/teamData';
 
 // Partner logos
 import logoFlips from '../assets/partners/flips.png';
@@ -456,99 +457,35 @@ const Home = () => {
                             Our <span className="text-gradient-main">Team</span>
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            ทีมผู้บริหารที่ขับเคลื่อน Colestia สู่อนาคตของอุตสาหกรรมภาพยนตร์ไทย
+                            “The leadership team propelling Colestia toward the future of the Thai film industry.”
                         </p>
                     </motion.div>
 
-                    {/* Team Grid */}
+                    {/* Team Grid - Dynamic from shared data */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* Team Member 1 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="group text-center"
-                        >
-                            <div className="relative mb-6 overflow-hidden rounded-2xl aspect-[3/4]">
-                                <img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
-                                    alt="ปรัชญา ปิ่นแก้ว"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </div>
-                            <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
-                                ปรัชญา ปิ่นแก้ว
-                            </h3>
-                            <p className="text-colestia-magenta text-sm">Director</p>
-                        </motion.div>
-
-                        {/* Team Member 2 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="group text-center"
-                        >
-                            <div className="relative mb-6 overflow-hidden rounded-2xl aspect-[3/4]">
-                                <img
-                                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop"
-                                    alt="จิรสิน ขนิษฐานันท์"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </div>
-                            <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
-                                จิรสิน ขนิษฐานันท์
-                            </h3>
-                            <p className="text-colestia-magenta text-sm">Co-Founder / CEO</p>
-                        </motion.div>
-
-                        {/* Team Member 3 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="group text-center"
-                        >
-                            <div className="relative mb-6 overflow-hidden rounded-2xl aspect-[3/4]">
-                                <img
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop"
-                                    alt="ฐณณ ธนกรประภา"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </div>
-                            <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
-                                ฐณณ ธนกรประภา
-                            </h3>
-                            <p className="text-colestia-magenta text-sm">Co-founder/ Executine director</p>
-                        </motion.div>
-
-                        {/* Team Member 4 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
-                            className="group text-center"
-                        >
-                            <div className="relative mb-6 overflow-hidden rounded-2xl aspect-[3/4]">
-                                <img
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop"
-                                    alt="ผศ.ชุมศักดิ์ สีบุญเรือง"
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </div>
-                            <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
-                                ผศ.ชุมศักดิ์ สีบุญเรือง
-                            </h3>
-                            <p className="text-colestia-magenta text-sm">Co-founder</p>
-                        </motion.div>
+                        {teamMembers.map((member, index) => (
+                            <motion.div
+                                key={member.name}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="group text-center"
+                            >
+                                <div className="relative mb-6 overflow-hidden rounded-2xl aspect-[3/4]">
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                </div>
+                                <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
+                                    {member.name}
+                                </h3>
+                                <p className="text-colestia-magenta text-sm">{member.role}</p>
+                            </motion.div>
+                        ))}
                     </div>
 
 
