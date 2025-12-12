@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const { language, toggleLanguage, t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,14 +24,12 @@ const Navbar = () => {
     }, [location]);
 
     const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'Products', path: '/products' },
-        //{/*}{ name: 'Service', path: '/service' }, // Keeping standard links from design, even if simple placeholders */ },
-        { name: 'Team', path: '/team' },
-        { name: 'News', path: '/news' },
-        { name: 'Education', path: '/education' }, // Added for Brief alignment
-        { name: 'Contact', path: '/contact' },
-
+        { name: t('หน้าหลัก', 'Home'), path: '/' },
+        { name: t('โปรเจกต์', 'Products'), path: '/products' },
+        { name: t('ทีมงาน', 'Team'), path: '/team' },
+        { name: t('ข่าวสาร', 'News'), path: '/news' },
+        { name: t('เรียนรู้', 'Education'), path: '/education' },
+        { name: t('ติดต่อ', 'Contact'), path: '/contact' },
     ];
 
     return (
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <NavLink
-                            key={link.name}
+                            key={link.path}
                             to={link.path}
                             className={({ isActive }) =>
                                 `text-lg tracking-wide transition-all duration-300 relative group ${isActive
@@ -65,9 +65,20 @@ const Navbar = () => {
                         </NavLink>
                     ))}
 
+                    {/* Language Toggle*/}
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 hover:border-colestia-purple/50 hover:bg-white/5 transition-all duration-300 group"
+                    >
+                        <Globe size={16} className="text-gray-400 group-hover:text-colestia-purple transition-colors" />
+                        <span className="text-sm font-medium text-white">
+                            {language === 'th' ? 'TH' : 'EN'}
+                        </span>
+                    </button>
+
                     {/* Join Now Button */}
                     <Link to="/login" className="text-lg bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-[0_0_20px_rgba(122,30,166,0.5)] transition-all duration-300 hover:scale-105">
-                        Join Now
+                        {t('เข้าร่วม', 'Join Now')}
                     </Link>
                 </div>
 
@@ -91,7 +102,7 @@ const Navbar = () => {
                     >
                         {navLinks.map((link) => (
                             <Link
-                                key={link.name}
+                                key={link.path}
                                 to={link.path}
                                 className="text-2xl font-display text-white hover:text-colestia-purple"
                                 onClick={() => setIsMobileMenuOpen(false)}
@@ -100,13 +111,24 @@ const Navbar = () => {
                             </Link>
                         ))}
 
+                        {/* Language Toggle - Mobile */}
+                        <button
+                            onClick={toggleLanguage}
+                            className="flex items-center gap-3 px-6 py-2 rounded-full border border-white/20 hover:border-colestia-purple/50 transition-all duration-300"
+                        >
+                            <Globe size={20} className="text-colestia-purple" />
+                            <span className="text-lg font-medium text-white">
+                                {language === 'th' ? 'ไทย' : 'English'}
+                            </span>
+                        </button>
+
                         {/* Join Now Button - Mobile */}
                         <Link
                             to="/login"
                             className="bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white px-8 py-3 rounded-full text-lg font-semibold hover:shadow-[0_0_20px_rgba(122,30,166,0.5)] transition-all duration-300 mt-4"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Join Now
+                            {t('เข้าร่วม', 'Join Now')}
                         </Link>
                     </motion.div>
                 )}
