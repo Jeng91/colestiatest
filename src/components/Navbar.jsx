@@ -60,6 +60,11 @@ const Navbar = () => {
                             {link.name}
                         </NavLink>
                     ))}
+
+                    {/* Join Now Button */}
+                    <button className="bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-[0_0_20px_rgba(122,30,166,0.5)] transition-all duration-300 hover:scale-105">
+                        Join Now
+                    </button>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -90,6 +95,14 @@ const Navbar = () => {
                                 {link.name}
                             </Link>
                         ))}
+
+                        {/* Join Now Button - Mobile */}
+                        <button
+                            className="bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white px-8 py-3 rounded-full text-lg font-semibold hover:shadow-[0_0_20px_rgba(122,30,166,0.5)] transition-all duration-300 mt-4"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Join Now
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>
