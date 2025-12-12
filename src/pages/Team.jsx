@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import jirasinImg from '../assets/jirasin.jpg.jpg';
+import { CloudCog } from 'lucide-react';
 
 {/*เปลี่ยนเป็นการดึงข้อมูลจาก DB อนาคต */ }
 const teamMembers = [
     {
         name: "Jirasin Khanitthanant",
         role: "Co-Founder / CEO",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
     },
     {
         name: "Name02",
@@ -16,14 +18,16 @@ const teamMembers = [
     {
         name: "Name03",
         role: "CEO",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
     },
     {
         name: "Name04",
         role: "CEO",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
     }
 ];
+
+
 
 const Team = () => {
     return (
@@ -52,7 +56,7 @@ const Team = () => {
                             transition={{ delay: index * 0.15 }}
                             className="text-center group"
                         >
-                            <div className="relative mb-6 overflow-hidden rounded-lg aspect-[3/4] grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <div className="relative mb-6 overflow-hidden rounded-lg aspect-[3/4]  group-hover:grayscale-0 transition-all duration-700">
                                 <img
                                     src={member.image}
                                     alt={member.name}
