@@ -82,10 +82,9 @@ const Home = () => {
                         >
                             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
                                 WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">COLESTIA</span>
+
+                                <br /><span className="text-white/60 text-xl">"Power Up! ปลุกพลังสร้างสรรค์หนังไทยกับ Colestia"</span>
                             </h2>
-                            <p className="text-gray-400 leading-loose mb-6">
-                                "Power Up! ปลุกพลังสร้างสรรค์หนังไทยกับ Colestia"
-                            </p>
                             <Button variant="ghost" className="pl-0 text-white group">
                                 Read Our Story <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </Button>
@@ -302,6 +301,7 @@ const Home = () => {
                         </motion.div>
                     </div>
 
+                    {/* View Full Directors Button */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}

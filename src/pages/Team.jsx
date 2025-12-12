@@ -1,25 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+{/*เปลี่ยนเป็นการดึงข้อมูลจาก DB อนาคต */ }
 const teamMembers = [
     {
-        name: "Thanet C.",
-        role: "Chief Executive Officer",
+        name: "Jirasin Khanitthanant",
+        role: "Co-Founder / CEO",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
     },
     {
-        name: "Pichaya S.",
-        role: "Chief Technology Officer",
+        name: "Name02",
+        role: "CEO",
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
     },
     {
-        name: "Somsak K.",
-        role: "Chief Financial Officer",
+        name: "Name03",
+        role: "CEO",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop"
     },
     {
-        name: "Araya M.",
-        role: "Head of Production",
+        name: "Name04",
+        role: "CEO",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
     }
 ];
@@ -29,14 +30,17 @@ const Team = () => {
         <div className="pt-28 pb-24 bg-black min-h-screen">
             <div className="container mx-auto px-6">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center mb-20"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16"
                 >
-                    <h1 className="text-4xl font-display font-medium text-white mb-4 tracking-widest uppercase">
-                        Board Of Director
+                    <h1 className="text-4xl md:text-4xl font-display font-bold text-white mb-4">
+                        Our <span className="text-gradient-main">Team</span>
                     </h1>
-                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-colestia-purple to-transparent mx-auto opacity-50" />
+                    {/*<p className="text-gray-400 max-w-2xl mx-auto">
+                        Visionary leaders driving innovation in film and blockchain technology.
+                    </p>*/}
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
