@@ -158,8 +158,8 @@ const Home = () => {
                         </p>
                     </motion.div>
 
-                    {/* Directors - Expandable Cards */}
-                    <div className="space-y-6 max-w-5xl mx-auto">
+                    {/* Directors - 1 Row, 4 Columns */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                         {/* Director 1 */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -168,34 +168,24 @@ const Home = () => {
                             transition={{ delay: 0.1 }}
                             className="group"
                         >
-                            {/* Before State - Compact Card */}
-                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)]">
-                                <div className="flex flex-col md:flex-row">
+                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)] h-full">
+                                <div className="flex flex-col h-full">
                                     {/* Photo Section */}
-                                    <div className="relative w-full md:w-80 h-80 md:h-96 flex-shrink-0 overflow-hidden">
+                                    <div className="relative w-full h-64 flex-shrink-0 overflow-hidden">
                                         <img
                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
-                                            alt="Weerachai Tanaka"
-                                            className="w-full h-full object-cover object-top transition-all duration-700"
+                                            alt="Director 1"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
                                         />
                                     </div>
 
                                     {/* Info Section */}
-                                    <div className="flex-1 p-8 flex flex-col justify-center">
-                                        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 group-hover:text-colestia-purple transition-colors">
+                                    <div className="flex-1 p-6 flex flex-col">
+                                        <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
                                             Director 1
                                         </h3>
-                                        <p className="text-colestia-magenta text-base font-medium mb-4">Director</p>
-
-                                        {/* Description - Visible on hover */}
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 group-hover:max-h-40 opacity-0 group-hover:opacity-100">
-                                            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                                                Description - Award-winning filmmaker with over 20 years of experience in the Thai entertainment industry. Pioneer in integrating blockchain technology with media production.
-                                            </p>
-                                        </div>
-
-                                        {/* Static short desc */}
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
+                                        <p className="text-colestia-magenta text-sm font-medium mb-3">Director</p>
+                                        <p className="text-gray-500 text-xs">Award-winning filmmaker</p>
                                     </div>
                                 </div>
                             </div>
@@ -209,26 +199,21 @@ const Home = () => {
                             transition={{ delay: 0.2 }}
                             className="group"
                         >
-                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)]">
-                                <div className="flex flex-col md:flex-row">
-                                    <div className="relative w-full md:w-80 h-80 md:h-96 flex-shrink-0 overflow-hidden">
+                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)] h-full">
+                                <div className="flex flex-col h-full">
+                                    <div className="relative w-full h-64 flex-shrink-0 overflow-hidden">
                                         <img
                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
-                                            alt="Weerachai Tanaka"
-                                            className="w-full h-full object-cover object-top transition-all duration-700"
+                                            alt="Director 2"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
                                         />
                                     </div>
-                                    <div className="flex-1 p-8 flex flex-col justify-center">
-                                        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 group-hover:text-colestia-purple transition-colors">
+                                    <div className="flex-1 p-6 flex flex-col">
+                                        <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
                                             Director 2
                                         </h3>
-                                        <p className="text-colestia-magenta text-base font-medium mb-4">Director</p>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 group-hover:max-h-40 opacity-0 group-hover:opacity-100">
-                                            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                                                Description - Renowned for her distinctive visual storytelling style. Led creative direction for multiple international co-productions and streaming originals.
-                                            </p>
-                                        </div>
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
+                                        <p className="text-colestia-magenta text-sm font-medium mb-3">Director</p>
+                                        <p className="text-gray-500 text-xs">Visual storytelling expert</p>
                                     </div>
                                 </div>
                             </div>
@@ -242,60 +227,49 @@ const Home = () => {
                             transition={{ delay: 0.3 }}
                             className="group"
                         >
-                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)]">
-                                <div className="flex flex-col md:flex-row">
-                                    <div className="relative w-full md:w-80 h-80 md:h-96 flex-shrink-0 overflow-hidden">
+                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)] h-full">
+                                <div className="flex flex-col h-full">
+                                    <div className="relative w-full h-64 flex-shrink-0 overflow-hidden">
                                         <img
                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
-                                            alt="Weerachai Tanaka"
-                                            className="w-full h-full object-cover object-top transition-all duration-700"
+                                            alt="Director 3"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
                                         />
                                     </div>
-                                    <div className="flex-1 p-8 flex flex-col justify-center">
-                                        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 group-hover:text-colestia-purple transition-colors">
+                                    <div className="flex-1 p-6 flex flex-col">
+                                        <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
                                             Director 3
                                         </h3>
-                                        <p className="text-colestia-magenta text-base font-medium mb-4">Director</p>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 group-hover:max-h-40 opacity-0 group-hover:opacity-100">
-                                            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                                                Description - Former tech executive with expertise in digital transformation. Bridges the gap between traditional media and emerging Web3 technologies.
-                                            </p>
-                                        </div>
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
+                                        <p className="text-colestia-magenta text-sm font-medium mb-3">Director</p>
+                                        <p className="text-gray-500 text-xs">Tech & media innovator</p>
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
-
 
                         {/* Director 4 */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
+                            transition={{ delay: 0.4 }}
                             className="group"
                         >
-                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)]">
-                                <div className="flex flex-col md:flex-row">
-                                    <div className="relative w-full md:w-80 h-80 md:h-96 flex-shrink-0 overflow-hidden">
+                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)] h-full">
+                                <div className="flex flex-col h-full">
+                                    <div className="relative w-full h-64 flex-shrink-0 overflow-hidden">
                                         <img
                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
-                                            alt="Weerachai Tanaka"
-                                            className="w-full h-full object-cover object-top transition-all duration-700"
+                                            alt="Director 4"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
                                         />
                                     </div>
-                                    <div className="flex-1 p-8 flex flex-col justify-center">
-                                        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 group-hover:text-colestia-purple transition-colors">
+                                    <div className="flex-1 p-6 flex flex-col">
+                                        <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
                                             Director 4
                                         </h3>
-                                        <p className="text-colestia-magenta text-base font-medium mb-4">Director</p>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 group-hover:max-h-40 opacity-0 group-hover:opacity-100">
-                                            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                                                Description - Former tech executive with expertise in digital transformation. Bridges the gap between traditional media and emerging Web3 technologies.
-                                            </p>
-                                        </div>
-                                        <p className="text-gray-500 text-sm group-hover:hidden">Short Description</p>
+                                        <p className="text-colestia-magenta text-sm font-medium mb-3">Director</p>
+                                        <p className="text-gray-500 text-xs">Digital transformation leader</p>
                                     </div>
                                 </div>
                             </div>
