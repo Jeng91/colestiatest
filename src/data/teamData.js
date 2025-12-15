@@ -7,26 +7,26 @@ import TanonImg from '../assets/team/ธณณ.png';
 
 export const teamMembers = [
     {
-        name: "ปรัชญา ปิ่นแก้ว",
-        nameEn: "Pratchaya Pinlaew",
+        //name: "ปรัชญา ปิ่นแก้ว",
+        name: "Prachya Pinkaew",
         role: "DIRECTOR",
         image: PratchayaImg
     },
     {
-        name: "จิรสิน ขนิษฐานันท์",
-        nameEn: "Jirasin Kanisathan",
+        //name: "จิรสิน ขนิษฐานันท์",
+        name: "Jirasin Khanitthanant",
         role: "CO-FOUNDER / CEO",
         image: jirasinImg
     },
     {
-        name: "ฐณณ ธนกรประภา",
-        nameEn: "Tanon Thongkrathap",
+        //name: "ฐณณ ธนกรประภา",
+        name: "Tanon Tanakornprapa",
         role: "CO-FOUNDER / EXECUTIVE DIRECTOR",
         image: TanonImg
     },
     {
-        name: "ผศ.ชุมศักดิ์ สีบุญเรือง",
-        nameEn: "Chumsak Si Bunruang",
+        //name: "ผศ.ชุมศักดิ์ สีบุญเรือง",
+        name: "Chumsak Sibunruang",
         role: "CO-FOUNDER",
         image: ChumsakImg
     }

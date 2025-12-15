@@ -24,8 +24,8 @@ export default {
                 }
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                display: ['Outfit', 'sans-serif'],
+                sans: ['Noto Sans Thai', 'Comfortaa', 'sans-serif'],
+                display: ['Comfortaa', 'Noto Sans Thai', 'sans-serif'],
             },
             backgroundImage: {
                 'colestia-gradient': 'linear-gradient(to right, #7A1EA6, #C92B8D, #005AC6)',
