@@ -26,9 +26,47 @@ const Login = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white"
+                className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gradient-to-br from-gray-50 via-white to-purple-50 relative overflow-hidden min-h-screen lg:min-h-0"
             >
-                <div className="w-full max-w-md">
+                {/* Subtle Animated Background Elements */}
+                <motion.div
+                    animate={{
+                        x: [0, 50, 0],
+                        y: [0, -30, 0],
+                        scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute top-10 right-10 w-64 h-64 bg-purple-200/20 rounded-full blur-3xl"
+                />
+                <motion.div
+                    animate={{
+                        x: [0, -40, 0],
+                        y: [0, 40, 0],
+                        scale: [1, 1.15, 1],
+                    }}
+                    transition={{
+                        duration: 18,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute bottom-10 left-10 w-72 h-72 bg-pink-200/15 rounded-full blur-3xl"
+                />
+                <motion.div
+                    animate={{
+                        rotate: [0, 360],
+                    }}
+                    transition={{
+                        duration: 30,
+                        repeat: Infinity,
+                        ease: "linear"
+                    }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-100/10 to-pink-100/10 rounded-full blur-3xl"
+                />
+                <div className="w-full max-w-md relative z-10">
                     {/* Logo */}
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
@@ -154,6 +192,21 @@ const Login = () => {
                             ดำเนินการต่อด้วย Google
                         </button>
                     </motion.div>
+
+                    {/* Sign Up Link - Visible on Mobile */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.7 }}
+                        className="mt-6 text-center lg:hidden"
+                    >
+                        <p className="text-gray-600 text-sm">
+                            ยังไม่มีบัญชี?{' '}
+                            <Link to="/register" className="text-purple-600 hover:text-purple-700 font-semibold transition-colors">
+                                สร้างบัญชี
+                            </Link>
+                        </p>
+                    </motion.div>
                 </div>
             </motion.div>
 
@@ -164,9 +217,69 @@ const Login = () => {
                 transition={{ duration: 0.6 }}
                 className="hidden lg:flex w-1/2 bg-gradient-to-br from-[#1a1025] via-[#0f0818] to-[#0a0510] items-center justify-center p-12 relative overflow-hidden"
             >
-                {/* Decorative Elements */}
-                <div className="absolute top-20 right-20 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 left-20 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl" />
+                {/* Animated Background Orbs */}
+                <motion.div
+                    animate={{
+                        x: [0, 100, 0],
+                        y: [0, -50, 0],
+                        scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute top-20 right-20 w-72 h-72 bg-purple-600/30 rounded-full blur-3xl"
+                />
+                <motion.div
+                    animate={{
+                        x: [0, -80, 0],
+                        y: [0, 60, 0],
+                        scale: [1, 1.3, 1],
+                    }}
+                    transition={{
+                        duration: 25,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute bottom-20 left-20 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl"
+                />
+                <motion.div
+                    animate={{
+                        x: [0, -60, 0],
+                        y: [0, -80, 0],
+                        scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                        duration: 18,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl"
+                />
+
+                {/* Floating Particles */}
+                {[...Array(8)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        animate={{
+                            y: [0, -100, 0],
+                            x: [0, Math.random() * 50 - 25, 0],
+                            opacity: [0.3, 0.8, 0.3],
+                        }}
+                        transition={{
+                            duration: 5 + Math.random() * 5,
+                            repeat: Infinity,
+                            delay: i * 0.5,
+                            ease: "easeInOut"
+                        }}
+                        className="absolute w-2 h-2 bg-white/40 rounded-full"
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                        }}
+                    />
+                ))}
 
                 <div className="relative z-10 text-center max-w-lg">
                     <motion.h2
@@ -197,7 +310,7 @@ const Login = () => {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300"
+                                className="px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/50 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300"
                             >
                                 สร้างบัญชี
                             </motion.button>

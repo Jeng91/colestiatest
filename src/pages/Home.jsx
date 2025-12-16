@@ -29,10 +29,10 @@ const Home = () => {
                     >
 
 
-                        <h1 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
+                        <h1 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight !md:text-6xl">
                             COLESTIA
                         </h1>
-                        <h2 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
+                        <h2 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight !md:text-6xl">
                             <span className="text-gradient-main">Dream Crafted.</span>
                         </h2>
 
@@ -40,8 +40,9 @@ const Home = () => {
                             className="text-xl text-white mb-10 max-w-2xl mx-auto font-light leading-relaxed"
                             style={{ textShadow: '0 2px 10px rgba(0, 0, 0, 5)' }}
                         >
-                            Crafting stories. Empowering creators. Elevating investors.
-                            <br /><span className="text-white/80 text-sm">Invest in the stories that shape tomorrow.</span>
+                            Crafting stories. Empowering creators.
+
+                            <br /><span className="text-white/100 text-md">Crafting the Next Chapter, Together.</span>
                         </p>
 
                         <div className="flex flex-col md:flex-row gap-4 justify-center">
