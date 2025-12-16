@@ -9,7 +9,7 @@ export const teamMembers = [
     {
         //name: "ปรัชญา ปิ่นแก้ว",
         name: "Prachya Pinkaew",
-        role: "DIRECTOR",
+        role: "DIRECTOR / CO-FOUNDER",
         image: PratchayaImg
     },
     {

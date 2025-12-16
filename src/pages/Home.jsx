@@ -29,10 +29,10 @@ const Home = () => {
                     >
 
 
-                        <h1 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight !md:text-6xl">
+                        <h1 className="text-5xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
                             COLESTIA
                         </h1>
-                        <h2 className="!text-50xl md:text-8xl font-display font-bold text-white mb-6 leading-tight !md:text-6xl">
+                        <h2 className="text-5xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
                             <span className="text-gradient-main">Dream Crafted.</span>
                         </h2>
 
@@ -75,7 +75,7 @@ const Home = () => {
             {/* 2. "We Are Colestia" / About Section */}
             <section className="py-24 bg-colestia-bg relative">
                 <div className="container mx-auto px-6">
-                    <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div className="grid md:grid-cols-1 gap-16 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -84,15 +84,30 @@ const Home = () => {
                         >
                             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
                                 WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">COLESTIA</span>
+                                <br /><br />
+                                <div className="text-white/100 text-xl font-display font-bold space-y-4">
+                                    <p>colestia คือพื้นที่ของคนรุ่นใหม่ที่เชื่อในพลังของภาพยนตร์ไทย</p>
+                                    <p>เราเชื่อว่าภาพยนตร์ที่ดีไม่ควรถูกสร้างขึ้นโดยคนเพียงไม่กี่คน แต่ควรเติบโตจากแรงร่วมใจของทุกคนที่รักในสิ่งเดียวกัน ที่นี่ผู้สร้างไม่ต้องแบกความฝันไว้เพียงลำพัง และผู้ชมไม่ถูกจำกัดให้เป็นแค่ผู้รับชม</p>
+                                    <p>เรามองว่าทุกไอเดียควรมีที่ยืน ทุกคนที่รักภาพยนตร์ควรมีโอกาสเป็นส่วนหนึ่งของการสร้างสรรค์</p>
+                                    <p>colestia จึงเป็นจุดเชื่อมระหว่างผู้สร้างสรรค์และคนรักภาพยนตร์ไทย พื้นที่ที่เปิดโอกาสให้ไอเดียได้เกิดขึ้นจริง ให้คนรุ่นใหม่ได้ลอง ได้เติบโต และได้เห็นผลงานของตัวเองก้าวไปไกลกว่าที่เคย เราเปลี่ยนการรับชมให้กลายเป็นการมีส่วนร่วม และร่วมกันผลักดันภาพยนตร์ไทยให้เดินหน้าอย่างที่ควรจะเป็น</p>
+                                    <p>นี่ไม่ใช่แค่แพลตฟอร์ม แต่คือจุดเริ่มต้นของบทใหม่ของภาพยนตร์ไทย บทที่เราทุกคนกำลังเขียนไปพร้อมกัน</p>
+                                </div>
 
-                                <br /><span className="text-white/90 text-xl font-display font-bold ">"Power Up! ปลุกพลังสร้างสรรค์หนังไทยกับ Colestia"</span>
                             </h2>
+
+                            {/* Button
                             <Button variant="ghost" className="pl-0 text-white group">
                                 Read Our Story <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </Button>
+                            */}
+
+
+
                         </motion.div>
+
+                        {/* Placeholder for About Image */}
                         <div className="relative h-[400px] rounded-2xl overflow-hidden glass-panel">
-                            {/* Placeholder for About Image */}
+
                             <img
                                 src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
                                 alt="Velcurve Studio"
@@ -249,6 +264,90 @@ const Home = () => {
                         </motion.div>
 
                         {/* Director 4 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4 }}
+                            className="group"
+                        >
+                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)] h-full">
+                                <div className="flex flex-col h-full">
+                                    <div className="relative w-full h-64 flex-shrink-0 overflow-hidden">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
+                                            alt="Director 4"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
+                                        />
+                                    </div>
+                                    <div className="flex-1 p-6 flex flex-col">
+                                        <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
+                                            Director 4
+                                        </h3>
+                                        <p className="text-colestia-magenta text-sm font-medium mb-3">Director</p>
+                                        <p className="text-gray-500 text-xs">Digital transformation leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Director 5 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4 }}
+                            className="group"
+                        >
+                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)] h-full">
+                                <div className="flex flex-col h-full">
+                                    <div className="relative w-full h-64 flex-shrink-0 overflow-hidden">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
+                                            alt="Director 4"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
+                                        />
+                                    </div>
+                                    <div className="flex-1 p-6 flex flex-col">
+                                        <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
+                                            Director 4
+                                        </h3>
+                                        <p className="text-colestia-magenta text-sm font-medium mb-3">Director</p>
+                                        <p className="text-gray-500 text-xs">Digital transformation leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Director 6 */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4 }}
+                            className="group"
+                        >
+                            <div className="relative bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/10 group-hover:border-colestia-purple/50 transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(122,30,166,0.3)] h-full">
+                                <div className="flex flex-col h-full">
+                                    <div className="relative w-full h-64 flex-shrink-0 overflow-hidden">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"
+                                            alt="Director 4"
+                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
+                                        />
+                                    </div>
+                                    <div className="flex-1 p-6 flex flex-col">
+                                        <h3 className="text-xl font-display font-bold text-white mb-1 group-hover:text-colestia-purple transition-colors">
+                                            Director 4
+                                        </h3>
+                                        <p className="text-colestia-magenta text-sm font-medium mb-3">Director</p>
+                                        <p className="text-gray-500 text-xs">Digital transformation leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Director 7 */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
