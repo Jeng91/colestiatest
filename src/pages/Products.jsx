@@ -258,7 +258,7 @@ const MovieCard = ({ movie }) => {
             className="group bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 hover:border-colestia-purple/30 transition-all duration-300 hover:shadow-2xl hover:shadow-colestia-purple/10"
         >
             {/* Poster */}
-            <div className="relative h-[400px] overflow-hidden">
+            <div className="relative h-[300px] md:h-[400px] overflow-hidden">
                 <img
                     src={movie.poster}
                     alt={movie.titleTh}
@@ -284,12 +284,12 @@ const MovieCard = ({ movie }) => {
             </div>
 
             {/* Content */}
-            <div className="p-6">
-                <h3 className="text-2xl font-display font-bold text-white mb-1">
+            <div className="p-4 md:p-6">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-1">
                     {movie.titleTh}
                 </h3>
-                <p className="text-sm text-gray-400 mb-3">{movie.titleEn}</p>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                <p className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3">{movie.titleEn}</p>
+                <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
                     {movie.description}
                 </p>
 
@@ -318,13 +318,13 @@ const MovieCard = ({ movie }) => {
                 <div className="flex justify-between items-center mb-4 pb-4 border-b border-white/5">
                     <div>
                         <p className="text-xs text-gray-500 mb-1">ระดมทุนได้</p>
-                        <p className="text-lg font-bold text-white">
+                        <p className="text-base md:text-lg font-bold text-white">
                             {formatCurrency(movie.currentFunding)}
                         </p>
                     </div>
                     <div className="text-right">
                         <p className="text-xs text-gray-500 mb-1">เป้าหมาย</p>
-                        <p className="text-lg font-bold text-gray-300">
+                        <p className="text-base md:text-lg font-bold text-gray-300">
                             {formatCurrency(movie.goalFunding)}
                         </p>
                     </div>
@@ -366,6 +366,7 @@ const MovieCard = ({ movie }) => {
 const FeaturedSection = ({ title, movies, icon: Icon }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showAll, setShowAll] = useState(false);
+    const [itemsPerView, setItemsPerView] = useState(1); // Start with mobile view
     const scrollRef = React.useRef(null);
 
     // Touch/Swipe state for mobile
@@ -374,8 +375,26 @@ const FeaturedSection = ({ title, movies, icon: Icon }) => {
 
     if (movies.length === 0) return null;
 
-    // Number of items visible at once (responsive)
-    const itemsPerView = 3;
+    // Update items per view based on screen size
+    React.useEffect(() => {
+        const updateItemsPerView = () => {
+            if (window.innerWidth >= 768) { // md breakpoint
+                setItemsPerView(3);
+            } else {
+                setItemsPerView(1);
+            }
+        };
+
+        // Set initial value
+        updateItemsPerView();
+
+        // Add resize listener
+        window.addEventListener('resize', updateItemsPerView);
+
+        // Cleanup
+        return () => window.removeEventListener('resize', updateItemsPerView);
+    }, []);
+
     const maxIndex = Math.max(0, movies.length - itemsPerView);
 
     // Minimum swipe distance (in px) to trigger navigation
@@ -494,7 +513,7 @@ const FeaturedSection = ({ title, movies, icon: Icon }) => {
                         onTouchEnd={onTouchEnd}
                     >
                         {movies.map((movie) => (
-                            <div key={movie.id} className="min-w-[320px] md:min-w-[380px] flex-shrink-0">
+                            <div key={movie.id} className="w-[calc(100vw-4rem)] md:w-[380px] flex-shrink-0">
                                 <MovieCard movie={movie} />
                             </div>
                         ))}
