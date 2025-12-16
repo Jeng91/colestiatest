@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
@@ -364,25 +364,108 @@ const MovieCard = ({ movie }) => {
 
 // Featured Section Component
 const FeaturedSection = ({ title, movies, icon: Icon }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [showAll, setShowAll] = useState(false);
+    const scrollRef = React.useRef(null);
+
     if (movies.length === 0) return null;
+
+    // Number of items visible at once (responsive)
+    const itemsPerView = 3;
+    const maxIndex = Math.max(0, movies.length - itemsPerView);
+
+    const scrollToIndex = (index) => {
+        if (scrollRef.current) {
+            const itemWidth = scrollRef.current.scrollWidth / movies.length;
+            scrollRef.current.scrollTo({
+                left: itemWidth * index,
+                behavior: 'smooth'
+            });
+        }
+        setCurrentIndex(index);
+    };
+
+    const handlePrev = () => {
+        const newIndex = Math.max(0, currentIndex - 1);
+        scrollToIndex(newIndex);
+    };
+
+    const handleNext = () => {
+        const newIndex = Math.min(maxIndex, currentIndex + 1);
+        scrollToIndex(newIndex);
+    };
 
     return (
         <div className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-                {Icon && <Icon className="text-colestia-cyan" size={24} />}
-                <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
-                    {title}
-                </h2>
+            <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                    {Icon && <Icon className="text-colestia-cyan" size={24} />}
+                    <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
+                        {title}
+                    </h2>
+                </div>
+
+                {/* Navigation Buttons */}
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={handlePrev}
+                        disabled={currentIndex === 0}
+                        className={`p-2 rounded-lg border transition-all ${currentIndex === 0
+                            ? 'border-white/10 text-gray-600 cursor-not-allowed'
+                            : 'border-colestia-purple/30 text-colestia-cyan hover:bg-colestia-purple/10 hover:border-colestia-purple'
+                            }`}
+                        aria-label="Previous"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="px-4 py-2 text-sm font-medium text-colestia-cyan hover:text-white border border-colestia-purple/30 rounded-lg hover:bg-colestia-purple/10 transition-all"
+                    >
+                        {showAll ? 'แสดงน้อยลง' : 'แสดงเพิ่มเติม'}
+                    </button>
+
+                    <button
+                        onClick={handleNext}
+                        disabled={currentIndex >= maxIndex}
+                        className={`p-2 rounded-lg border transition-all ${currentIndex >= maxIndex
+                            ? 'border-white/10 text-gray-600 cursor-not-allowed'
+                            : 'border-colestia-purple/30 text-colestia-cyan hover:bg-colestia-purple/10 hover:border-colestia-purple'
+                            }`}
+                        aria-label="Next"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             <div className="relative">
-                <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-track-white/5 scrollbar-thumb-colestia-purple/50">
-                    {movies.map((movie) => (
-                        <div key={movie.id} className="min-w-[320px] md:min-w-[380px] snap-start">
-                            <MovieCard movie={movie} />
-                        </div>
-                    ))}
-                </div>
+                {showAll ? (
+                    // Show all movies in grid
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {movies.map((movie) => (
+                            <MovieCard key={movie.id} movie={movie} />
+                        ))}
+                    </div>
+                ) : (
+                    // Show carousel with smooth scrolling
+                    <div
+                        ref={scrollRef}
+                        className="flex gap-6 overflow-x-hidden scroll-smooth scrollbar-hide"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {movies.map((movie) => (
+                            <div key={movie.id} className="min-w-[320px] md:min-w-[380px] flex-shrink-0">
+                                <MovieCard movie={movie} />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );
