@@ -368,11 +368,18 @@ const FeaturedSection = ({ title, movies, icon: Icon }) => {
     const [showAll, setShowAll] = useState(false);
     const scrollRef = React.useRef(null);
 
+    // Touch/Swipe state for mobile
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+
     if (movies.length === 0) return null;
 
     // Number of items visible at once (responsive)
     const itemsPerView = 3;
     const maxIndex = Math.max(0, movies.length - itemsPerView);
+
+    // Minimum swipe distance (in px) to trigger navigation
+    const minSwipeDistance = 50;
 
     const scrollToIndex = (index) => {
         if (scrollRef.current) {
@@ -393,6 +400,30 @@ const FeaturedSection = ({ title, movies, icon: Icon }) => {
     const handleNext = () => {
         const newIndex = Math.min(maxIndex, currentIndex + 1);
         scrollToIndex(newIndex);
+    };
+
+    // Touch handlers for mobile swipe
+    const onTouchStart = (e) => {
+        setTouchEnd(null); // Reset
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            handleNext();
+        } else if (isRightSwipe) {
+            handlePrev();
+        }
     };
 
     return (
@@ -458,6 +489,9 @@ const FeaturedSection = ({ title, movies, icon: Icon }) => {
                         ref={scrollRef}
                         className="flex gap-6 overflow-x-hidden scroll-smooth scrollbar-hide"
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
                     >
                         {movies.map((movie) => (
                             <div key={movie.id} className="min-w-[320px] md:min-w-[380px] flex-shrink-0">
