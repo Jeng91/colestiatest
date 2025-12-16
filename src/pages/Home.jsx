@@ -28,13 +28,13 @@ const Home = () => {
 
     // Directors data array
     const directors = [
-        { img: director1, name: 'ปรัชญา ปิ่นแก้ว', role: 'Director', engName: 'Prachya Pinkaew' },
-        { img: director2, name: 'พันธุ์ธัมม์ ทองสังข์', role: 'Director', engName: 'Phantham Thongsang' },
-        { img: director3, name: 'บัณฑิต ทองดี', role: 'Director', engName: 'Bundit Thongdee' },
-        { img: director4, name: 'ศิวาภรณ์ พงษ์สุวรรณ', role: 'Director', engName: 'Siwaporn Pongsuwon' },
-        { img: director5, name: 'ราเชนทร์ ลิ้มตระกูล', role: 'Director', engName: 'Rachane Limtrakul' },
-        { img: director6, name: 'ศุภรัฐ บุญมาแย้ม', role: 'Director', engName: 'Suparat Bunmayam' },
-        { img: director7, name: 'รัฐพงศ์ ภิญโญโสภณ', role: 'Screenwriter', engName: 'Rattapong Pinyosophon' }
+        { img: director1, name: 'ปรัชญา ปิ่นแก้ว', role: 'Director / Producer', }, //engName: 'Prachya Pinkaew' },
+        { img: director2, name: 'พันธุ์ธัมม์ ทองสังข์', role: 'Director / Producer', }, //engName: 'Phantham Thongsang' },
+        { img: director3, name: 'บัณฑิต ทองดี', role: 'Director', }, //engName: 'Bundit Thongdee' },
+        { img: director4, name: 'ศิวาภรณ์ พงษ์สุวรรณ', role: 'Sceenwriter / Producer', }, //engName: 'Siwaporn Pongsuwon' },
+        { img: director5, name: 'ราเชนทร์ ลิ้มตระกูล', role: 'Director', }, //engName: 'Rachane Limtrakul' },
+        { img: director6, name: 'ศุภรัฐ บุญมาแย้ม', role: 'Director / Sceenwriter', }, //engName: 'Suparat Bunmayam' },
+        { img: director7, name: 'รัฐพงศ์ ภิญโญโสภณ', role: 'Sceenwriter', } //engName: 'Rattapong Pinyosophon' }
     ];
 
     const scrollDirectors = (direction) => {
@@ -104,88 +104,87 @@ const Home = () => {
                 </motion.div>
             </section>
 
-            {/* 2. "We Are Colestia" / About Section */}
-            <section className="py-24 bg-colestia-bg relative">
+            {/* 2. "We Are Colestia" / About Section - Section 1 */}
+            <section className="py-2 bg-colestia-bg relative">
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
+                        {/* Text Left */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+                            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-8">
                                 WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">COLESTIA</span>
-                                <br /><br />
-                                <div className="text-white/100 text-xl font-display font-bold space-y-4">
-                                    <p>| colestia คือพื้นที่ของคนรุ่นใหม่ที่เชื่อในพลังของภาพยนตร์ไทย</p>
-                                    <p>เราเชื่อว่าภาพยนตร์ที่ดีไม่ควรถูกสร้างขึ้นโดยคนเพียงไม่กี่คน แต่ควรเติบโตจากแรงร่วมใจของทุกคนที่รักในสิ่งเดียวกัน ที่นี่ผู้สร้างไม่ต้องแบกความฝันไว้เพียงลำพัง และผู้ชมไม่ถูกจำกัดให้เป็นแค่ผู้รับชม</p>
-
-                                </div>
-
                             </h2>
 
-                            {/* Button
-                            <Button variant="ghost" className="pl-0 text-white group">
-                                Read Our Story <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                            */}
+                            <div className="border-l-4 border-colestia-purple pl-6 space-y-4">
+                                <h2 className="text-white text-xl font-bold leading-relaxed">
+                                    <strong >colestia</strong> คือพื้นที่ของคนรุ่นใหม่ที่เชื่อในพลังของภาพยนตร์ไทย
+                                </h2>
+                                <p className="text-white/90 text-base leading-relaxed">
+                                    เราเชื่อว่าภาพยนตร์ที่ดีไม่ควรถูกสร้างขึ้นโดยคนเพียงไม่กี่คน แต่ควรเติบโตจากแรงร่วมใจของทุกคนที่รักในสิ่งเดียวกัน ที่นี่ผู้สร้างไม่ต้องแบกความฝันไว้เพียงลำพัง และผู้ชมไม่ถูกจำกัดให้เป็นแค่ผู้รับชม
+                                </p>
+                            </div>
                         </motion.div>
 
-                        {/* Placeholder for About Image */}
-                        <div className="relative h-[400px] rounded-2xl overflow-hidden glass-panel">
-
+                        {/* Image Right */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="relative h-[400px] rounded-2xl overflow-hidden glass-panel"
+                        >
                             <img
                                 src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
-                                alt="Velcurve Studio"
+                                alt="Colestia Vision"
                                 className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                             />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* 2. "We Are Colestia" / About Section */}
-            <section className="py-24 bg-colestia-bg relative">
+            {/* 3. "We Are Colestia" / About Section - Section 2 */}
+            <section className="py-2 bg-colestia-bg relative">
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
-
-                        {/* Placeholder for About Image */}
-                        <div className="relative h-[400px] rounded-2xl overflow-hidden glass-panel">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
-                                alt="Velcurve Studio"
-                                className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
-                            />
-                        </div>
-
+                        {/* Image Left */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
+                            className="relative h-[400px] rounded-2xl overflow-hidden glass-panel"
                         >
-                            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-                                WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">COLESTIA</span>
-                                <br /><br />
-                                <div className="text-white/100 text-xl font-display font-bold space-y-4">
-                                    <p>| colestia คือพื้นที่ของคนรุ่นใหม่ที่เชื่อในพลังของภาพยนตร์ไทย</p>
-                                    <p>เราเชื่อว่าภาพยนตร์ที่ดีไม่ควรถูกสร้างขึ้นโดยคนเพียงไม่กี่คน แต่ควรเติบโตจากแรงร่วมใจของทุกคนที่รักในสิ่งเดียวกัน ที่นี่ผู้สร้างไม่ต้องแบกความฝันไว้เพียงลำพัง และผู้ชมไม่ถูกจำกัดให้เป็นแค่ผู้รับชม</p>
-                                    <p>เรามองว่าทุกไอเดียควรมีที่ยืน ทุกคนที่รักภาพยนตร์ควรมีโอกาสเป็นส่วนหนึ่งของการสร้างสรรค์</p>
-                                    <p>colestia จึงเป็นจุดเชื่อมระหว่างผู้สร้างสรรค์และคนรักภาพยนตร์ไทย พื้นที่ที่เปิดโอกาสให้ไอเดียได้เกิดขึ้นจริง ให้คนรุ่นใหม่ได้ลอง ได้เติบโต และได้เห็นผลงานของตัวเองก้าวไปไกลกว่าที่เคย เราเปลี่ยนการรับชมให้กลายเป็นการมีส่วนร่วม และร่วมกันผลักดันภาพยนตร์ไทยให้เดินหน้าอย่างที่ควรจะเป็น</p>
-                                    <p>นี่ไม่ใช่แค่แพลตฟอร์ม แต่คือจุดเริ่มต้นของบทใหม่ของภาพยนตร์ไทย บทที่เราทุกคนกำลังเขียนไปพร้อมกัน</p>
-                                </div>
-
-                            </h2>
-
-                            {/* Button
-                            <Button variant="ghost" className="pl-0 text-white group">
-                                Read Our Story <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                            */}
+                            <img
+                                src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2070&auto=format&fit=crop"
+                                alt="Creative Collaboration"
+                                className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
+                            />
                         </motion.div>
 
+                        {/* Text Right */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <div className="border-l-4 border-colestia-purple pl-6 space-y-4">
+                                <h2 className="text-white text-xl font-bold leading-relaxed">
+                                    <strong>ทุกไอเดียควรมีที่ยืน ทุกคนที่รักภาพยนตร์ควรมีโอกาสเป็นส่วนหนึ่งของการสร้างสรรค์</strong>
+                                </h2>
+                                <p className="text-white/90 text-base leading-relaxed">
+                                    <strong>colestia</strong> จึงเป็นจุดเชื่อมระหว่างผู้สร้างสรรค์และคนรักภาพยนตร์ไทย พื้นที่ที่เปิดโอกาสให้ไอเดียได้เกิดขึ้นจริง ให้คนรุ่นใหม่ได้ลอง ได้เติบโต และได้เห็นผลงานของตัวเองก้าวไปไกลกว่าที่เคย เราเปลี่ยนการรับชมให้กลายเป็นการมีส่วนร่วม และร่วมกันผลักดันภาพยนตร์ไทยให้เดินหน้าอย่างที่ควรจะเป็น
+                                </p>
+                                <p className="text-white/90 text-base leading-relaxed">
+                                    นี่ไม่ใช่แค่แพลตฟอร์ม แต่คือจุดเริ่มต้นของบทใหม่ของภาพยนตร์ไทย บทที่เราทุกคนกำลังเขียนไปพร้อมกัน
+                                </p>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -239,7 +238,7 @@ const Home = () => {
                         className="text-center mb-16"
                     >
                         <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-                            Our <span className="text-gradient-main">Directors</span>
+                            Our <span className="text-gradient-main">Creators</span>
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
                             Visionary leaders driving innovation in film and blockchain technology.
@@ -311,7 +310,7 @@ const Home = () => {
 
                     {/* Scroll Hint for Mobile */}
                     <p className="text-center text-gray-500 text-sm mt-8 md:hidden">
-                        👈 Swipe to see more 👉
+                        Swipe to see more
                     </p>
                 </div>
             </section>
