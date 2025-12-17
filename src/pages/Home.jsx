@@ -319,7 +319,7 @@ const Home = () => {
 
             {/* 5. Partners Section */}
             <section className="py-24 bg-[#050505]">
-                <div className="container mx-auto px-6">
+                <div className="mx-auto px-6 md:px-24">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -330,13 +330,14 @@ const Home = () => {
                             Our <span className="text-gradient-main">Partners</span>
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto">
-                            “Partners shaping the future of the media and blockchain technology industries.”
+                            "Partners shaping the future of the media and blockchain technology industries."
                         </p>
                     </motion.div>
 
-                    {/* Partner Grid - 3 columns, 2 rows */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        {/* Partner 1: ก.ล.ต. */}
+                    {/* Partner Grid - 5 columns in a single row */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+
+                        {/* Partner 1: กระทรวงวัฒนธรรม */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -344,17 +345,16 @@ const Home = () => {
                             transition={{ delay: 0.1 }}
                             className="group"
                         >
-                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                            <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-40 md:h-48 flex items-center justify-center">
                                 <img
-                                    src={logoSEC}
-                                    alt="ก.ล.ต."
-                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    src={logoCulture}
+                                    alt="กระทรวงวัฒนธรรม"
+                                    className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
-
                         </motion.div>
 
-                        {/* Partner 2: กระทรวงวัฒนธรรม */}
+                        {/* Partner 2: กรมทรัพย์สินทางปัญญา */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -362,17 +362,16 @@ const Home = () => {
                             transition={{ delay: 0.15 }}
                             className="group"
                         >
-                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                            <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-40 md:h-48 flex items-center justify-center">
                                 <img
-                                    src={logoCulture}
-                                    alt="กระทรวงวัฒนธรรม"
-                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    src={logoDIP}
+                                    alt="กรมทรัพย์สินทางปัญญา"
+                                    className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
-
                         </motion.div>
 
-                        {/* Partner 3: กรมทรัพย์สินทางปัญญา */}
+                        {/* Partner 3: มหาวิทยาลัยมหาสารคาม */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -380,16 +379,16 @@ const Home = () => {
                             transition={{ delay: 0.2 }}
                             className="group"
                         >
-                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                            <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-40 md:h-48 flex items-center justify-center">
                                 <img
-                                    src={logoDIP}
-                                    alt="กรมทรัพย์สินทางปัญญา"
-                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    src={logoMSU}
+                                    alt="มหาวิทยาลัยมหาสารคาม"
+                                    className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </motion.div>
 
-                        {/* Partner 4: มหาวิทยาลัยมหาสารคาม */}
+                        {/* Partner 4: Fraction */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -397,16 +396,16 @@ const Home = () => {
                             transition={{ delay: 0.25 }}
                             className="group"
                         >
-                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                            <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-40 md:h-48 flex items-center justify-center">
                                 <img
-                                    src={logoMSU}
-                                    alt="มหาวิทยาลัยมหาสารคาม"
-                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    src={logoFraction}
+                                    alt="Fraction"
+                                    className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </motion.div>
 
-                        {/* Partner 5: Fraction */}
+                        {/* Partner 5: Flips Innovative */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -414,28 +413,11 @@ const Home = () => {
                             transition={{ delay: 0.3 }}
                             className="group"
                         >
-                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
-                                <img
-                                    src={logoFraction}
-                                    alt="Fraction"
-                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
-                                />
-                            </div>
-                        </motion.div>
-
-                        {/* Partner 6: Flips Innovative */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.35 }}
-                            className="group"
-                        >
-                            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-48 flex items-center justify-center">
+                            <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-40 md:h-48 flex items-center justify-center">
                                 <img
                                     src={logoFlips}
                                     alt="Flips Innovative"
-                                    className="max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                    className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
                         </motion.div>
