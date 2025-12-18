@@ -8,8 +8,8 @@ export default {
         extend: {
             colors: {
                 colestia: {
-                    bg: '#050505',       // Deepest Black (from palette)
-                    card: '#111111',
+                    bg: '#000000ff',       // Deepest Black (from palette)
+                    card: '#000000ff',
 
                     // The 5-Color Palette
                     purple: '#7A1EA6',   // Vibrant Purple
