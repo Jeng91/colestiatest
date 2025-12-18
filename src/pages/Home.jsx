@@ -121,9 +121,9 @@ const Home = () => {
 
                             <div className="border-l-4 border-colestia-purple pl-6 space-y-4">
                                 <h2 className="text-white text-xl font-bold leading-relaxed">
-                                    <strong >colestia</strong> คือพื้นที่ของคนรุ่นใหม่ที่เชื่อในพลังของภาพยนตร์ไทย
+                                    <strong>colestia</strong> คือพื้นที่ของคนรุ่นใหม่ที่เชื่อในพลังของภาพยนตร์ไทย
                                 </h2>
-                                <p className="text-white/90 text-base leading-relaxed">
+                                <p className="text-white/90 text-base leading-relaxed indent-8">
                                     เราเชื่อว่าภาพยนตร์ที่ดีไม่ควรถูกสร้างขึ้นโดยคนเพียงไม่กี่คน แต่ควรเติบโตจากแรงร่วมใจของทุกคนที่รักในสิ่งเดียวกัน ที่นี่ผู้สร้างไม่ต้องแบกความฝันไว้เพียงลำพัง และผู้ชมไม่ถูกจำกัดให้เป็นแค่ผู้รับชม
                                 </p>
                             </div>
@@ -177,10 +177,11 @@ const Home = () => {
                                 <h2 className="text-white text-xl font-bold leading-relaxed">
                                     <strong>ทุกไอเดียควรมีที่ยืน ทุกคนที่รักภาพยนตร์ควรมีโอกาสเป็นส่วนหนึ่งของการสร้างสรรค์</strong>
                                 </h2>
-                                <p className="text-white/90 text-base leading-relaxed">
+                                <p className="text-white/90 text-base leading-relaxed indent-8">
                                     <strong>colestia</strong> จึงเป็นจุดเชื่อมระหว่างผู้สร้างสรรค์และคนรักภาพยนตร์ไทย พื้นที่ที่เปิดโอกาสให้ไอเดียได้เกิดขึ้นจริง ให้คนรุ่นใหม่ได้ลอง ได้เติบโต และได้เห็นผลงานของตัวเองก้าวไปไกลกว่าที่เคย เราเปลี่ยนการรับชมให้กลายเป็นการมีส่วนร่วม และร่วมกันผลักดันภาพยนตร์ไทยให้เดินหน้าอย่างที่ควรจะเป็น
                                 </p>
-                                <p className="text-white/90 text-base leading-relaxed">
+                                <br />
+                                <p className="text-white/90 text-base leading-relaxed indent-8">
                                     นี่ไม่ใช่แค่แพลตฟอร์ม แต่คือจุดเริ่มต้นของบทใหม่ของภาพยนตร์ไทย บทที่เราทุกคนกำลังเขียนไปพร้อมกัน
                                 </p>
                             </div>
@@ -371,18 +372,18 @@ const Home = () => {
                             </div>
                         </motion.div>
 
-                        {/* Partner 3: มหาวิทยาลัยมหาสารคาม */}
+                        {/* Partner 3: Flips Innovative */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
+                            transition={{ delay: 0.3 }}
                             className="group"
                         >
                             <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-40 md:h-48 flex items-center justify-center">
                                 <img
-                                    src={logoMSU}
-                                    alt="มหาวิทยาลัยมหาสารคาม"
+                                    src={logoFlips}
+                                    alt="Flips Innovative"
                                     className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
@@ -405,18 +406,20 @@ const Home = () => {
                             </div>
                         </motion.div>
 
-                        {/* Partner 5: Flips Innovative */}
+
+
+                        {/* Partner 5: มหาวิทยาลัยมหาสารคาม */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
+                            transition={{ delay: 0.2 }}
                             className="group"
                         >
                             <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(122,30,166,0.3)] transition-all duration-500 hover:-translate-y-2 h-40 md:h-48 flex items-center justify-center">
                                 <img
-                                    src={logoFlips}
-                                    alt="Flips Innovative"
+                                    src={logoMSU}
+                                    alt="มหาวิทยาลัยมหาสารคาม"
                                     className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
