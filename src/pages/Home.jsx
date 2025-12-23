@@ -62,7 +62,7 @@ const Home = () => {
 
 
                         <h1 className="text-5xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
-                            COLESTIA
+                            colestia
                         </h1>
                         <h2 className="text-5xl md:text-8xl font-display font-bold text-white mb-6 leading-tight">
                             <span className="text-gradient-main">Dream Crafted.</span>
@@ -116,7 +116,7 @@ const Home = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-8">
-                                WE ARE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">COLESTIA</span>
+                                We are <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">colestia</span>
                             </h2>
 
                             <div className="border-l-4 border-colestia-purple pl-6 space-y-4">

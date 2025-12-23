@@ -39,11 +39,13 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 {/* Logo */}
-                <Link to="/" className="text-2xl font-display font-bold text-white tracking-widest uppercase flex items-center gap-2">
+                <Link to="/" className="text-2xl font-display font-bold text-white tracking-widest flex items-center gap-2">
                     <div className="w-8 h-8 bg-colestia-purple/20 rounded-full flex items-center justify-center border border-colestia-purple">
                         <span className="text-colestia-purple text-xs">C</span>
                     </div>
-                    Colestia
+                    <span className="text-white">
+                        colestia
+                    </span>
                 </Link>
 
                 {/* Desktop Links */}
