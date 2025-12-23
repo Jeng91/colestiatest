@@ -119,102 +119,8 @@ const movies = [
         featured: ['new'],
         status: 'active'
     },
-    {
-        id: 7,
-        titleTh: 'อาณาจักรมังกร',
-        titleEn: 'Dragon Kingdom',
-        genre: 'fantasy',
-        description: 'แฟนตาซีผจญภัยในดินแดนเวทมนตร์ที่เต็มไปด้วยมังกรและสิ่งมหัศจรรย์',
-        poster: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 1200000,
-        goalFunding: 18000000,
-        percentage: 6,
-        startDate: '2025-03-01',
-        endDate: '2025-05-31',
-        investors: 125,
-        featured: ['new', 'openingSoon'],
-        status: 'upcoming'
-    },
-    {
-        id: 8,
-        titleTh: 'คดีปริศนาฆาตกรรม',
-        titleEn: 'Murder Mystery Case',
-        genre: 'crime',
-        description: 'นักสืบสาวคลี่คลายคดีฆาตกรรมที่ซับซ้อนที่สุดในประวัติศาสตร์',
-        poster: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 9800000,
-        goalFunding: 11000000,
-        percentage: 89,
-        startDate: '2024-11-01',
-        endDate: '2025-02-10',
-        investors: 1120,
-        featured: ['mostInvested', 'closingSoon'],
-        status: 'active'
-    },
-    {
-        id: 9,
-        titleTh: 'ชีวิตจริงของนักดนตรี',
-        titleEn: 'Life of a Musician',
-        genre: 'documentary',
-        description: 'สารคดีติดตามชีวิตของนักดนตรีระดับโลกและการต่อสู้เพื่อความฝัน',
-        poster: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 2500000,
-        goalFunding: 5000000,
-        percentage: 50,
-        startDate: '2025-01-10',
-        endDate: '2025-04-10',
-        investors: 320,
-        featured: ['new'],
-        status: 'active'
-    },
-    {
-        id: 10,
-        titleTh: 'น้ำตาแห่งความหวัง',
-        titleEn: 'Tears of Hope',
-        genre: 'drama',
-        description: 'ดราม่าสะเทือนใจเกี่ยวกับครอบครัวที่ต้องเผชิญกับความทุกข์ยากและความหวัง',
-        poster: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 7800000,
-        goalFunding: 9000000,
-        percentage: 86,
-        startDate: '2024-12-10',
-        endDate: '2025-03-01',
-        investors: 950,
-        featured: ['popular', 'closingSoon'],
-        status: 'active'
-    },
-    {
-        id: 11,
-        titleTh: 'เด็กน้อยผู้กล้าหาญ',
-        titleEn: 'Brave Little Hero',
-        genre: 'animation',
-        description: 'แอนิเมชั่นสุดน่ารักเกี่ยวกับเด็กชายผู้กล้าที่ออกเดินทางช่วยเหลือโลก',
-        poster: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 500000,
-        goalFunding: 15000000,
-        percentage: 3,
-        startDate: '2025-02-15',
-        endDate: '2025-05-15',
-        investors: 89,
-        featured: ['new', 'openingSoon'],
-        status: 'upcoming'
-    },
-    {
-        id: 12,
-        titleTh: 'ปริศนามรณะ',
-        titleEn: 'Deadly Puzzle',
-        genre: 'thriller',
-        description: 'ระทึกขวัญสุดลุ้นที่จะทำให้คุณต้องติดตามจนจบเรื่อง',
-        poster: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 10500000,
-        goalFunding: 13000000,
-        percentage: 80,
-        startDate: '2024-12-20',
-        endDate: '2025-03-20',
-        investors: 1340,
-        featured: ['mostInvested', 'popular'],
-        status: 'active'
-    }
+
+
 ];
 
 // Format currency
@@ -257,8 +163,8 @@ const MovieCard = ({ movie }) => {
             viewport={{ once: true }}
             className="group bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 hover:border-colestia-purple/30 transition-all duration-300 hover:shadow-2xl hover:shadow-colestia-purple/10"
         >
-            {/* Poster */}
-            <div className="relative h-[300px] md:h-[400px] overflow-hidden">
+            {/* Poster - 16:9 Aspect Ratio (Teaser/Landscape) */}
+            <div className="relative aspect-video overflow-hidden">
                 <img
                     src={movie.poster}
                     alt={movie.titleTh}
@@ -496,8 +402,8 @@ const FeaturedSection = ({ title, movies, icon: Icon }) => {
 
             <div className="relative">
                 {showAll ? (
-                    // Show all movies in grid
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    // Show all movies in grid - 2 columns layout
+                    <div className="grid md:grid-cols-2 gap-6">
                         {movies.map((movie) => (
                             <MovieCard key={movie.id} movie={movie} />
                         ))}
@@ -621,6 +527,7 @@ const Products = () => {
                 {/* Featured Sections - Only show when no filter is applied */}
                 {selectedGenre === 'all' && (
                     <>
+                        {/* Most Invested Movies 
                         <FeaturedSection
                             title="🔥 หนังที่คนลงทุนมากที่สุด"
                             movies={mostInvestedMovies}
@@ -645,9 +552,10 @@ const Products = () => {
                         <FeaturedSection
                             title="⏰ หนังที่กำลังจะปิดระดมทุน"
                             movies={closingSoonMovies}
-                        />
+                        />*/}
                     </>
                 )}
+
 
                 {/* All Movies Grid (filtered) */}
                 <motion.div
@@ -659,7 +567,7 @@ const Products = () => {
                         {selectedGenre === 'all' ? 'โครงการทั้งหมด' : `โครงการหมวด${GENRES.find(g => g.id === selectedGenre)?.name}`}
                     </h2>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid md:grid-cols-2 gap-6">
                         {filteredMovies.map((movie) => (
                             <MovieCard key={movie.id} movie={movie} />
                         ))}
