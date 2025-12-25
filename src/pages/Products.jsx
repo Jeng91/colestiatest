@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
-import { Calendar, TrendingUp, Users, Filter, X } from 'lucide-react';
+import { Calendar, Filter, X } from 'lucide-react';
+import { projects } from '../data/projectsData';
 
 // Movie genres
 const GENRES = [
@@ -21,139 +22,23 @@ const GENRES = [
     { id: 'thriller', name: 'ระทึกขวัญ', nameEn: 'Thriller' }
 ];
 
-// Sample movie crowdfunding projects
-const movies = [
-    {
-        id: 1,
-        titleTh: 'มหาสงครามแห่งอวกาศ',
-        titleEn: 'Space Wars Eternal',
-        genre: 'scifi',
-        description: 'เรื่องราวของกลุ่มนักรบอวกาศที่ต่อสู้เพื่อปกป้องกาแล็กซี่จากการรุกรานของเอเลี่ยน',
-        poster: 'https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 12500000,
-        goalFunding: 15000000,
-        percentage: 83,
-        startDate: '2025-01-01',
-        endDate: '2025-03-31',
-        investors: 1250,
-        featured: ['mostInvested', 'popular'],
-        status: 'active'
-    },
-    {
-        id: 2,
-        titleTh: 'รักแรกพบ ณ เกาะสวรรค์',
-        titleEn: 'First Love Paradise',
-        genre: 'romance',
-        description: 'เรื่องราวความรักโรแมนติกของคู่รักที่พบกันบนเกาะสวยงามแห่งหนึ่งในทะเลอันดามัน',
-        poster: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 8750000,
-        goalFunding: 10000000,
-        percentage: 87,
-        startDate: '2024-12-15',
-        endDate: '2025-02-28',
-        investors: 980,
-        featured: ['popular', 'closingSoon'],
-        status: 'active'
-    },
-    {
-        id: 3,
-        titleTh: 'ตำนานอสูรกาย',
-        titleEn: 'Legend of the Monster',
-        genre: 'horror',
-        description: 'สยองขวัญไทยที่พาผู้คนไปสัมผัสกับตำนานอันน่ากลัวในหมู่บ้านห่างไกลความเจริญ',
-        poster: 'https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 6200000,
-        goalFunding: 8000000,
-        percentage: 77,
-        startDate: '2024-11-20',
-        endDate: '2025-02-15',
-        investors: 720,
-        featured: ['closingSoon'],
-        status: 'active'
-    },
-    {
-        id: 4,
-        titleTh: 'การผจญภัยในป่าลึก',
-        titleEn: 'Deep Forest Adventure',
-        genre: 'adventure',
-        description: 'การเดินทางสุดระทึกของกลุ่มนักสำรวจในป่าดงดิบที่ยังไม่มีใครเคยไปถึง',
-        poster: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 5400000,
-        goalFunding: 12000000,
-        percentage: 45,
-        startDate: '2025-02-01',
-        endDate: '2025-04-30',
-        investors: 456,
-        featured: ['openingSoon'],
-        status: 'upcoming'
-    },
-    {
-        id: 5,
-        titleTh: 'ผู้พิทักษ์เมือง',
-        titleEn: 'City Guardian',
-        genre: 'action',
-        description: 'นักสู้เพื่อความยุติธรรมที่ปกป้องเมืองจากกลุ่มอาชญากรรมระดับนานาชาติ',
-        poster: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 15000000,
-        goalFunding: 20000000,
-        percentage: 75,
-        startDate: '2024-12-01',
-        endDate: '2025-03-15',
-        investors: 1580,
-        featured: ['mostInvested', 'popular'],
-        status: 'active'
-    },
-    {
-        id: 6,
-        titleTh: 'ขำขันวุ่นรัก',
-        titleEn: 'Crazy Love Comedy',
-        genre: 'comedy',
-        description: 'คอมเมดี้โรแมนติกที่จะทำให้คุณหัวเราะจนน้ำตาไหลกับเรื่องราวความรักสุดฮา',
-        poster: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=800&auto=format&fit=crop',
-        currentFunding: 3500000,
-        goalFunding: 7000000,
-        percentage: 50,
-        startDate: '2025-01-15',
-        endDate: '2025-03-30',
-        investors: 890,
-        featured: ['new'],
-        status: 'active'
-    },
-
-
-];
-
 // Format currency
 const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('th-TH', {
-        style: 'currency',
-        currency: 'THB',
-        minimumFractionDigits: 0
-    }).format(amount);
+    return `฿${(amount / 1000000).toFixed(1)}M`;
 };
 
-// Format date
-const formatDate = (dateString) => {
+// Format date to Thai
+const formatDateThai = (dateString) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('th-TH', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-    }).format(date);
+    const thaiMonths = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+    const day = date.getDate();
+    const month = thaiMonths[date.getMonth()];
+    const year = date.getFullYear() + 543;
+    return `${day} ${month} ${year}`;
 };
 
-// Calculate days remaining
-const getDaysRemaining = (endDate) => {
-    const today = new Date();
-    const end = new Date(endDate);
-    const diffTime = end - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays > 0 ? diffDays : 0;
-};
-
-// Movie Card Component
+// Movie Card Component - Updated Design
 const MovieCard = ({ movie }) => {
-    const daysRemaining = getDaysRemaining(movie.endDate);
     const genre = GENRES.find(g => g.id === movie.genre);
 
     return (
@@ -161,272 +46,96 @@ const MovieCard = ({ movie }) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="group bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 hover:border-colestia-purple/30 transition-all duration-300 hover:shadow-2xl hover:shadow-colestia-purple/10"
+            className="group bg-[#1a1a1a] rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-300"
         >
-            {/* Poster - 16:9 Aspect Ratio (Teaser/Landscape) */}
-            <div className="relative aspect-video overflow-hidden">
+            {/* Poster */}
+            <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                     src={movie.poster}
                     alt={movie.titleTh}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-                {/* Genre Badge */}
-                <div className="absolute top-4 left-4">
-                    <span className="text-xs font-bold text-white bg-colestia-purple/80 backdrop-blur-md px-3 py-1.5 rounded-full">
+                {/* Genre Badge - Top Left */}
+                <div className="absolute top-3 left-3">
+                    <span className="bg-colestia-purple text-white text-xs font-bold px-3 py-1.5 rounded-full">
                         {genre?.name}
                     </span>
                 </div>
-
-                {/* Status Badge */}
-                {movie.status === 'upcoming' && (
-                    <div className="absolute top-4 right-4">
-                        <span className="text-xs font-bold text-white bg-colestia-cyan/80 backdrop-blur-md px-3 py-1.5 rounded-full">
-                            เปิดเร็วๆ นี้
-                        </span>
-                    </div>
-                )}
             </div>
 
             {/* Content */}
-            <div className="p-4 md:p-6">
-                <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-1">
+            <div className="p-5">
+                {/* Title */}
+                <h3 className="text-white font-bold text-xl mb-1">
                     {movie.titleTh}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3">{movie.titleEn}</p>
-                <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                <p className="text-gray-400 text-sm mb-4">
+                    {movie.titleEn}
+                </p>
+
+                {/* Description */}
+                <p className="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
                     {movie.description}
                 </p>
 
-                {/* Funding Progress */}
+                {/* Progress Bar - White */}
                 <div className="mb-4">
-                    <div className="flex justify-between items-center mb-2">
-                        <span className="text-xs text-gray-500">ระดมทุนได้</span>
-                        <span className="text-xs font-bold text-colestia-cyan">
+                    <div className="flex justify-end items-center mb-2">
+                        <span className="text-white text-sm font-bold">
                             {movie.percentage}%
                         </span>
                     </div>
-
-                    {/* Progress Bar */}
-                    <div className="relative h-3 bg-white/5 rounded-full overflow-hidden">
-                        <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${movie.percentage}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="absolute inset-y-0 left-0 bg-gradient-to-r from-colestia-purple via-colestia-magenta to-colestia-cyan rounded-full"
+                    <div className="h-2 bg-[#2a2a2a] rounded-full overflow-hidden">
+                        <div
+                            className="h-full bg-white rounded-full"
+                            style={{ width: `${movie.percentage}%` }}
                         />
                     </div>
                 </div>
 
                 {/* Funding Amount */}
-                <div className="flex justify-between items-center mb-4 pb-4 border-b border-white/5">
+                <div className="flex justify-between items-center mb-4">
                     <div>
-                        <p className="text-xs text-gray-500 mb-1">ระดมทุนได้</p>
-                        <p className="text-base md:text-lg font-bold text-white">
+                        <p className="text-gray-500 text-xs mb-1">ระดมทุนได้</p>
+                        <p className="text-white font-bold text-lg">
                             {formatCurrency(movie.currentFunding)}
                         </p>
                     </div>
                     <div className="text-right">
-                        <p className="text-xs text-gray-500 mb-1">เป้าหมาย</p>
-                        <p className="text-base md:text-lg font-bold text-gray-300">
+                        <p className="text-gray-500 text-xs mb-1">เป้าหมาย</p>
+                        <p className="text-white font-bold text-lg">
                             {formatCurrency(movie.goalFunding)}
                         </p>
                     </div>
                 </div>
 
-                {/* Dates & Investors */}
-                <div className="space-y-2 mb-4">
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
-                        <Calendar size={14} className="text-colestia-cyan" />
-                        <span className="text-xs">
-                            เริ่ม: {formatDate(movie.startDate)} - สิ้นสุด: {formatDate(movie.endDate)}
-                        </span>
+                {/* Date & Investors */}
+                <div className="flex items-center justify-between text-xs text-gray-400 mb-5">
+                    <div className="flex items-center gap-1">
+                        <Calendar size={14} />
+                        <span>เริ่ม: {formatDateThai(movie.startDate)} - สิ้นสุด: {formatDateThai(movie.endDate)}</span>
                     </div>
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                            <Users size={14} className="text-colestia-magenta" />
-                            <span className="text-xs">{movie.investors.toLocaleString()} นักลงทุน</span>
-                        </div>
-                        {daysRemaining > 0 && (
-                            <span className="text-xs text-colestia-cyan font-medium">
-                                เหลือ {daysRemaining} วัน
-                            </span>
-                        )}
+                    <div className="flex items-center gap-1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>{movie.investors.toLocaleString()} นักลงทุน</span>
                     </div>
                 </div>
 
                 {/* CTA Button */}
                 <Link to={`/project/${movie.id}`}>
-                    <Button variant="primary" className="w-full">
-                        {movie.status === 'upcoming' ? 'ดูรายละเอียด' : 'ลงทุนเลย'}
-                    </Button>
+                    <button className="w-full bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white font-bold py-3.5 rounded-full hover:shadow-lg hover:shadow-colestia-purple/50 transition-all">
+                        ลงทุนเลย
+                    </button>
                 </Link>
             </div>
         </motion.div>
-    );
-};
-
-// Featured Section Component
-const FeaturedSection = ({ title, movies, icon: Icon }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [showAll, setShowAll] = useState(false);
-    const [itemsPerView, setItemsPerView] = useState(1); // Start with mobile view
-    const scrollRef = React.useRef(null);
-
-    // Touch/Swipe state for mobile
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchEnd, setTouchEnd] = useState(null);
-
-    if (movies.length === 0) return null;
-
-    // Update items per view based on screen size
-    React.useEffect(() => {
-        const updateItemsPerView = () => {
-            if (window.innerWidth >= 768) { // md breakpoint
-                setItemsPerView(3);
-            } else {
-                setItemsPerView(1);
-            }
-        };
-
-        // Set initial value
-        updateItemsPerView();
-
-        // Add resize listener
-        window.addEventListener('resize', updateItemsPerView);
-
-        // Cleanup
-        return () => window.removeEventListener('resize', updateItemsPerView);
-    }, []);
-
-    const maxIndex = Math.max(0, movies.length - itemsPerView);
-
-    // Minimum swipe distance (in px) to trigger navigation
-    const minSwipeDistance = 50;
-
-    const scrollToIndex = (index) => {
-        if (scrollRef.current) {
-            const itemWidth = scrollRef.current.scrollWidth / movies.length;
-            scrollRef.current.scrollTo({
-                left: itemWidth * index,
-                behavior: 'smooth'
-            });
-        }
-        setCurrentIndex(index);
-    };
-
-    const handlePrev = () => {
-        const newIndex = Math.max(0, currentIndex - 1);
-        scrollToIndex(newIndex);
-    };
-
-    const handleNext = () => {
-        const newIndex = Math.min(maxIndex, currentIndex + 1);
-        scrollToIndex(newIndex);
-    };
-
-    // Touch handlers for mobile swipe
-    const onTouchStart = (e) => {
-        setTouchEnd(null); // Reset
-        setTouchStart(e.targetTouches[0].clientX);
-    };
-
-    const onTouchMove = (e) => {
-        setTouchEnd(e.targetTouches[0].clientX);
-    };
-
-    const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
-
-        const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
-
-        if (isLeftSwipe) {
-            handleNext();
-        } else if (isRightSwipe) {
-            handlePrev();
-        }
-    };
-
-    return (
-        <div className="mb-16">
-            <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                    {Icon && <Icon className="text-colestia-cyan" size={24} />}
-                    <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
-                        {title}
-                    </h2>
-                </div>
-
-                {/* Navigation Buttons */}
-                <div className="flex items-center gap-3">
-                    <button
-                        onClick={handlePrev}
-                        disabled={currentIndex === 0}
-                        className={`p-2 rounded-lg border transition-all ${currentIndex === 0
-                            ? 'border-white/10 text-gray-600 cursor-not-allowed'
-                            : 'border-colestia-purple/30 text-colestia-cyan hover:bg-colestia-purple/10 hover:border-colestia-purple'
-                            }`}
-                        aria-label="Previous"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-
-                    <button
-                        onClick={() => setShowAll(!showAll)}
-                        className="px-4 py-2 text-sm font-medium text-colestia-cyan hover:text-white border border-colestia-purple/30 rounded-lg hover:bg-colestia-purple/10 transition-all"
-                    >
-                        {showAll ? 'แสดงน้อยลง' : 'แสดงเพิ่มเติม'}
-                    </button>
-
-                    <button
-                        onClick={handleNext}
-                        disabled={currentIndex >= maxIndex}
-                        className={`p-2 rounded-lg border transition-all ${currentIndex >= maxIndex
-                            ? 'border-white/10 text-gray-600 cursor-not-allowed'
-                            : 'border-colestia-purple/30 text-colestia-cyan hover:bg-colestia-purple/10 hover:border-colestia-purple'
-                            }`}
-                        aria-label="Next"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <div className="relative">
-                {showAll ? (
-                    // Show all movies in grid - 2 columns layout
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {movies.map((movie) => (
-                            <MovieCard key={movie.id} movie={movie} />
-                        ))}
-                    </div>
-                ) : (
-                    // Show carousel with smooth scrolling
-                    <div
-                        ref={scrollRef}
-                        className="flex gap-6 overflow-x-hidden scroll-smooth scrollbar-hide"
-                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
-                    >
-                        {movies.map((movie) => (
-                            <div key={movie.id} className="w-[calc(100vw-4rem)] md:w-[380px] flex-shrink-0">
-                                <MovieCard movie={movie} />
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
-        </div>
     );
 };
 
@@ -435,38 +144,23 @@ const Products = () => {
 
     // Filter movies by genre
     const filteredMovies = useMemo(() => {
-        if (selectedGenre === 'all') return movies;
-        return movies.filter(movie => movie.genre === selectedGenre);
+        if (selectedGenre === 'all') return projects;
+        return projects.filter(movie => movie.genre === selectedGenre);
     }, [selectedGenre]);
 
-    // Featured sections
-    const mostInvestedMovies = useMemo(() =>
-        movies.filter(m => m.featured.includes('mostInvested')).sort((a, b) => b.investors - a.investors),
-        []
-    );
-
-    const popularMovies = useMemo(() =>
-        movies.filter(m => m.featured.includes('popular')),
-        []
-    );
-
-    const openingSoonMovies = useMemo(() =>
-        movies.filter(m => m.featured.includes('openingSoon')),
-        []
+    // Separate movies into Sale and New
+    const onSaleMovies = useMemo(() =>
+        filteredMovies.filter(m => m.onSale),
+        [filteredMovies]
     );
 
     const newMovies = useMemo(() =>
-        movies.filter(m => m.featured.includes('new')),
-        []
-    );
-
-    const closingSoonMovies = useMemo(() =>
-        movies.filter(m => m.featured.includes('closingSoon')),
-        []
+        filteredMovies.filter(m => m.isNew),
+        [filteredMovies]
     );
 
     return (
-        <div className="pt-28 pb-20 min-h-screen">
+        <div className="pt-28 pb-20 min-h-screen bg-black">
             <div className="container mx-auto px-6">
                 {/* Header */}
                 <motion.div
@@ -474,15 +168,12 @@ const Products = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-12 text-center"
                 >
-                    <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
+                    <h1 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
                         ระดมทุน<span className="text-gradient-main">โครงการหนัง</span>
                     </h1>
                     <p className="text-gray-400 max-w-2xl mx-auto mb-4">
                         ร่วมเป็นส่วนหนึ่งในการสร้างสรรค์ผลงานภาพยนตร์คุณภาพ
                     </p>
-                    <span className="text-colestia-magenta text-sm border border-colestia-magenta/30 px-3 py-1.5 rounded-full inline-block">
-                        แพลตฟอร์มระดมทุนภาพยนตร์
-                    </span>
                 </motion.div>
 
                 {/* Genre Filter */}
@@ -524,61 +215,48 @@ const Products = () => {
                     )}
                 </motion.div>
 
-                {/* Featured Sections - Only show when no filter is applied */}
-                {selectedGenre === 'all' && (
-                    <>
-                        {/* Most Invested Movies 
-                        <FeaturedSection
-                            title="🔥 หนังที่คนลงทุนมากที่สุด"
-                            movies={mostInvestedMovies}
-                            icon={TrendingUp}
-                        />
-
-                        <FeaturedSection
-                            title="⭐ หนังที่สนใจ"
-                            movies={popularMovies}
-                        />
-
-                        <FeaturedSection
-                            title="🎬 หนังที่กำลังจะเปิดระดมทุน"
-                            movies={openingSoonMovies}
-                        />
-
-                        <FeaturedSection
-                            title="🆕 หนังที่มาใหม่"
-                            movies={newMovies}
-                        />
-
-                        <FeaturedSection
-                            title="⏰ หนังที่กำลังจะปิดระดมทุน"
-                            movies={closingSoonMovies}
-                        />*/}
-                    </>
+                {/* On Sale Section */}
+                {onSaleMovies.length > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mb-16"
+                    >
+                        <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-6">
+                            ยอดนิยม
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {onSaleMovies.map((movie) => (
+                                <MovieCard key={movie.id} movie={movie} />
+                            ))}
+                        </div>
+                    </motion.div>
                 )}
 
-
-                {/* All Movies Grid (filtered) */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                >
-                    <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-6">
-                        {selectedGenre === 'all' ? 'โครงการทั้งหมด' : `โครงการหมวด${GENRES.find(g => g.id === selectedGenre)?.name}`}
-                    </h2>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {filteredMovies.map((movie) => (
-                            <MovieCard key={movie.id} movie={movie} />
-                        ))}
-                    </div>
-
-                    {filteredMovies.length === 0 && (
-                        <div className="text-center py-20">
-                            <p className="text-gray-500">ไม่พบโครงการในหมวดนี้</p>
+                {/* New Section */}
+                {newMovies.length > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-6">
+                            ภาพยนตร์มาใหม่
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {newMovies.map((movie) => (
+                                <MovieCard key={movie.id} movie={movie} />
+                            ))}
                         </div>
-                    )}
-                </motion.div>
+                    </motion.div>
+                )}
+
+                {/* No Results */}
+                {filteredMovies.length === 0 && (
+                    <div className="text-center py-20">
+                        <p className="text-gray-500">ไม่พบโครงการในหมวดนี้</p>
+                    </div>
+                )}
             </div>
         </div>
     );
