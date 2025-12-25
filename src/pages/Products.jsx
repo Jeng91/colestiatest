@@ -130,9 +130,30 @@ const MovieCard = ({ movie }) => {
 
                 {/* CTA Button */}
                 <Link to={`/project/${movie.id}`}>
-                    <button className="w-full bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white font-bold py-3.5 rounded-full hover:shadow-lg hover:shadow-colestia-purple/50 transition-all">
-                        ลงทุนเลย
-                    </button>
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="relative w-full bg-gradient-to-r from-colestia-purple to-colestia-magenta text-white font-bold py-3.5 rounded-full hover:shadow-lg hover:shadow-colestia-purple/50 transition-all overflow-hidden group"
+                    >
+                        {/* Shimmer effect */}
+                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+                        {/* Button content */}
+                        <span className="relative flex items-center justify-center gap-2">
+                            ลงทุนเลย
+                            <svg
+                                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </span>
+
+                        {/* Pulse effect */}
+                        <div className="absolute inset-0 rounded-full animate-pulse bg-white/10 opacity-0 group-hover:opacity-100" />
+                    </motion.button>
                 </Link>
             </div>
         </motion.div>
