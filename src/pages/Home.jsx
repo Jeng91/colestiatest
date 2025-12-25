@@ -172,16 +172,16 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 3. Ecosystem Flow Diagram (Visualizing the Brief) 
+            {/* 3. Ecosystem Flow Diagram (Visualizing the Brief) */}
             <section className="py-24 bg-[#050505]">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="text-3xl font-display font-bold text-white mb-16">The Ecosystem Flow</h2>
 
                     <div className="grid md:grid-cols-3 gap-8 relative">
-                        {/* Connecting Line (Desktop) 
+                        {/* Connecting Line (Desktop) */}
                         <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-colestia-purple/30 to-transparent -translate-y-1/2 z-0" />
 
-                        {/* Step 1 
+                        {/* Step 1 */}
                         <div className="relative z-10 bg-colestia-card p-8 rounded-2xl border border-white/5 mx-auto max-w-xs">
                             <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-400">
                                 <Globe size={32} />
@@ -190,7 +190,7 @@ const Home = () => {
                             <p className="text-sm text-gray-400">User discovers project through trusted media channels.</p>
                         </div>
 
-                        {/* Step 2 (Colestia) 
+                        {/* Step 2 (Colestia) */}
                         <div className="relative z-10 bg-colestia-card p-8 rounded-2xl border border-colestia-purple/30 shadow-[0_0_30px_rgba(122,30,166,0.1)] mx-auto max-w-xs">
                             <div className="w-16 h-16 bg-colestia-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-colestia-purple">
                                 <Shield size={32} />
@@ -199,7 +199,7 @@ const Home = () => {
                             <p className="text-sm text-gray-400">In-depth education, project showcase, and risk analysis.</p>
                         </div>
 
-                        {/* Step 3 
+                        {/* Step 3 */}
                         <div className="relative z-10 bg-colestia-card p-8 rounded-2xl border border-white/5 mx-auto max-w-xs">
                             <div className="w-16 h-16 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-purple-400">
                                 <Zap size={32} />
@@ -209,8 +209,8 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </section> 
-*/}
+            </section>
+
             {/* 4. Directors Section - Horizontal Carousel */}
             <section className="py-24 bg-colestia-bg overflow-hidden">
                 <div className="container mx-auto px-6">
