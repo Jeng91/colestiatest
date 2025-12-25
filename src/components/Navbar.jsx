@@ -26,7 +26,7 @@ const Navbar = () => {
     const navLinks = [
         { name: t('หน้าหลัก', 'Home'), path: '/' },
         { name: t('โปรเจกต์', 'Projects'), path: '/products' },
-        { name: t('ทีมงาน', 'Team'), path: '/team' },
+        { name: t('เกี่ยวกับเรา', 'About Us'), path: '/about-us' },
         { name: t('ข่าวสาร', 'News'), path: '/news' },
         { name: t('เรียนรู้', 'Education'), path: '/education' },
         { name: t('ติดต่อ', 'Contact'), path: '/contact' },

@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProjectDetail from './pages/ProjectDetail';
-import Team from './pages/Team';
+import AboutUs from './pages/AboutUs';
 import Education from './pages/Education';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -39,7 +39,7 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/education" element={<Education />} />
-          <Route path="/team" element={<Team />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
 
           {/* Placeholders for secondary links */}
