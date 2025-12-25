@@ -527,6 +527,37 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Newsletter Subscription Section */}
+            <section className="py-20 bg-gradient-to-b from-[#050505] to-colestia-bg">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-gradient-to-r from-colestia-purple to-colestia-magenta rounded-3xl p-12 md:p-16 text-center shadow-[0_20px_60px_rgba(122,30,166,0.4)]"
+                    >
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                            Get Ready!
+                        </h2>
+                        <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+                            Subscribe to our newsletter to get the latest news and updates from us
+                        </p>
+
+                        {/* Email Input Form */}
+                        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                            <input
+                                type="email"
+                                placeholder="Email address"
+                                className="flex-1 px-6 py-4 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder-white/100 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
+                            />
+                            <button className="px-8 py-4 bg-white text-colestia-purple rounded-full font-semibold hover:bg-white/90 hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300 hover:scale-105">
+                                Subscribe
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Director Detail Modal */}
             {selectedDirector && (
                 <motion.div
