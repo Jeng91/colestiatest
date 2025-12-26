@@ -307,7 +307,7 @@ const Home = () => {
 
 
 
-            {/* 5. Partners Section */}
+            {/* 5. Partners Section 
             <section className="py-24 bg-[#050505]">
                 <div className="mx-auto px-6 md:px-24">
                     <motion.div
@@ -322,12 +322,12 @@ const Home = () => {
                         <p className="text-gray-400 max-w-2xl mx-auto">
                             "Partners shaping the future of the media and blockchain technology industries."
                         </p>
-                    </motion.div>
+                    </motion.div>*/}
 
-                    {/* Partner Grid - 5 columns in a single row */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+            {/* Partner Grid - 5 columns in a single row 
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">*/}
 
-                        {/* Partner 1: กระทรวงวัฒนธรรม */}
+            {/* Partner 1: กระทรวงวัฒนธรรม 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -342,9 +342,9 @@ const Home = () => {
                                     className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
-                        </motion.div>
+                        </motion.div>*/}
 
-                        {/* Partner 2: กรมทรัพย์สินทางปัญญา */}
+            {/* Partner 2: กรมทรัพย์สินทางปัญญา 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -359,9 +359,9 @@ const Home = () => {
                                     className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
-                        </motion.div>
+                        </motion.div>*/}
 
-                        {/* Partner 3: Flips Innovative */}
+            {/* Partner 3: Flips Innovative 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -376,9 +376,9 @@ const Home = () => {
                                     className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
-                        </motion.div>
+                        </motion.div>*/}
 
-                        {/* Partner 4: Fraction */}
+            {/* Partner 4: Fraction 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -393,11 +393,11 @@ const Home = () => {
                                     className="max-h-32 md:max-h-40 max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
-                        </motion.div>
+                        </motion.div>*/}
 
 
 
-                        {/* Partner 5: มหาวิทยาลัยมหาสารคาม */}
+            {/* Partner 5: มหาวิทยาลัยมหาสารคาม 
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -415,9 +415,9 @@ const Home = () => {
                         </motion.div>
                     </div>
                 </div>
-            </section>
+            </section>*/}
 
-            {/* 5. Our Team Section */}
+            {/* 5. Our Team Section 
             <section className="py-24 bg-gradient-to-b from-colestia-bg to-[#050505]">
                 <div className="container mx-auto px-6">
                     <motion.div
@@ -432,9 +432,9 @@ const Home = () => {
                         <p className="text-gray-400 max-w-2xl mx-auto">
                             “The leadership team propelling Colestia toward the future of the Thai film industry.”
                         </p>
-                    </motion.div>
+                    </motion.div>*/}
 
-                    {/* Team Grid - Dynamic from shared data */}
+            {/* Team Grid - Dynamic from shared data 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {teamMembers.map((member, index) => (
                             <motion.div
@@ -464,7 +464,7 @@ const Home = () => {
 
 
                 </div>
-            </section>
+            </section>*/}
 
             {/* Newsletter Subscription Section */}
             <section className="py-20 bg-gradient-to-b from-[#050505] to-colestia-bg">

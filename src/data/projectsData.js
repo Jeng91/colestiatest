@@ -40,7 +40,7 @@ export const projects = [
         titleTh: 'ตำนานอสูรกาย',
         titleEn: 'Legend of the Monster',
         genre: 'horror',
-        description: 'สยองขวัญไทยที่พาผู้คนไปสัมผัสกับตำนานอันน่ากลัวในหมู่บ้านห่างไกลความเจริญ',
+        description: 'สยองขวัญไทยที่พาผู้คนไปสัมผัสกับตำนานอันน่ากลัวในหมู่บ้านห่างไกลความเจริญ ที่มีแต่ป่าไม้สูงใหญ่',
         poster: 'https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=800&auto=format&fit=crop',
         currentFunding: 6200000,
         goalFunding: 8000000,
@@ -102,5 +102,42 @@ export const projects = [
         onSale: false,
         isNew: true,
         status: 'active'
+    },
+];
+
+// Coming Soon Movies Data
+export const comingSoonMovies = [
+    {
+        id: 101,
+        titleTh: 'จักรวาลแห่งความฝัน',
+        titleEn: 'Universe of Dreams',
+        genre: 'fantasy',
+        description: 'การผจญภัยข้ามมิติของเด็กสาวที่ค้นพบว่าความฝัน',
+        poster: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop',
+        expectedDate: '2025-06-01',
+        director: 'สมชาย วิริยะกุล',
+        status: 'coming_soon'
+    },
+    {
+        id: 102,
+        titleTh: 'เงาแห่งความลับ',
+        titleEn: 'Shadow of Secrets',
+        genre: 'thriller',
+        description: 'นักสืบหนุ่มที่ต้องไขปริศนาฆาตกรรมลึกลับที่เชื่อมโยงกับอดีตของเขาเอง',
+        poster: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop',
+        expectedDate: '2025-07-15',
+        director: 'วิภา สุขสันต์',
+        status: 'coming_soon'
+    },
+    {
+        id: 103,
+        titleTh: 'รักข้ามเวลา',
+        titleEn: 'Love Across Time',
+        genre: 'romance',
+        description: 'เรื่องราวความรักของคู่รักที่พบกันข้ามกาลเวลา จากอดีตสู่ปัจจุบัน',
+        poster: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=800&auto=format&fit=crop',
+        expectedDate: '2025-08-20',
+        director: 'ณัฐพล รักดี',
+        status: 'coming_soon'
     },
 ];
