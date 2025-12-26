@@ -80,19 +80,35 @@ const MovieCard = ({ movie }) => {
                     {movie.description}
                 </p>
 
-                {/* Progress Bar - White */}
+                {/* Progress Bar - 3 Color Levels */}
                 <div className="mb-4">
                     <div className="flex justify-end items-center mb-2">
-                        <span className="text-white text-sm font-bold">
+                        <span className={`text-sm font-bold ${movie.percentage >= 67 ? 'text-green-400' :
+                            movie.percentage >= 34 ? 'text-amber-400' :
+                                'text-red-400'
+                            }`}>
                             {movie.percentage}%
                         </span>
                     </div>
-                    <div className="h-2 bg-[#2a2a2a] rounded-full overflow-hidden">
+
+                    {/* แ Bar - 3 Color Levels */}
+                    <div className="h-2.5 bg-[#2a2a2a] rounded-full overflow-hidden">
                         <div
-                            className="h-full bg-white rounded-full"
+                            className={`h-full rounded-full transition-all duration-500 ${movie.percentage >= 67 ? 'bg-gradient-to-r from-green-500 to-emerald-400' :
+                                movie.percentage >= 34 ? 'bg-gradient-to-r from-amber-500 to-yellow-400' :
+                                    'bg-gradient-to-r from-red-500 to-orange-400'
+                                }`}
                             style={{ width: `${movie.percentage}%` }}
                         />
                     </div>
+
+                    {/* Progress Bar - 3 Color Levels */}
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>0%</span>
+                        <span>เป้าหมาย 100%</span>
+                    </div>
+
+
                 </div>
 
                 {/* Funding Amount */}
